@@ -10,12 +10,12 @@
 
     <header class="w-full relative z-50 bg-gray-50">
         <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold tracking-tighter text-blue-600">QRing.io</a>
+            <a href="index.html" class="text-2xl font-bold tracking-tighter text-blue-600 hacker-text" data-value="QRing.io">QRing.io</a>
             
             <div class="space-x-6 hidden md:flex items-center">
-                <a href="benchmarks.html" class="hover:text-blue-600 font-medium">Benchmarks</a>
-                <a href="paper.html" class="hover:text-blue-600 font-medium">arXiv</a>
-                <a href="team.html" class="hover:text-blue-600 font-medium">Team</a>
+                <a href="benchmarks.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Benchmarks">Benchmarks</a>
+                <a href="paper.html" class="hover:text-blue-600 font-medium hacker-text" data-value="arXiv">arXiv</a>
+                <a href="team.html" class="text-blue-600 font-bold hacker-text" data-value="Team">Team</a>
             </div>
 
             <button id="mobile-menu-btn" class="md:hidden text-gray-900 focus:outline-none">
@@ -29,21 +29,21 @@
             <div class="flex flex-col space-y-4">
                 <a href="benchmarks.html" class="text-lg font-medium hover:text-blue-600">Benchmarks</a>
                 <a href="paper.html" class="text-lg font-medium hover:text-blue-600">arXiv</a>
-                <a href="team.html" class="text-lg font-medium hover:text-blue-600">Team</a>
+                <a href="team.html" class="text-lg font-bold text-blue-600">Team</a>
             </div>
         </div>
     </header>
 
     <main class="flex-grow py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-16">Core Contributors</h1>
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h1 class="text-4xl md:text-5xl font-bold mb-16 hacker-text cursor-default" data-value="Core Contributors">Core Contributors</h1>
             <div class="flex flex-col md:flex-row justify-center gap-16">
                 
                 <div class="flex-1">
                     <div class="w-32 h-32 bg-gray-900 text-white rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold shadow-lg">
                         BJF
                     </div>
-                    <h2 class="text-2xl font-bold">Bryan J Fehr</h2>
+                    <h2 class="text-2xl font-bold hacker-text cursor-default" data-value="Bryan J Fehr">Bryan J Fehr</h2>
                     <p class="text-blue-600 font-medium mb-4 text-lg">Lead Architect / Lead Developer / Founder</p>
                     <div class="flex justify-center space-x-6 mt-4">
                         <a href="#" class="text-gray-500 hover:text-gray-900 transition font-medium">GitHub</a>
@@ -55,7 +55,7 @@
                     <div class="w-32 h-32 bg-gray-900 text-white rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold shadow-lg">
                         JE
                     </div>
-                    <h2 class="text-2xl font-bold">Jeff Elder</h2>
+                    <h2 class="text-2xl font-bold hacker-text cursor-default" data-value="Jeff Elder">Jeff Elder</h2>
                     <p class="text-blue-600 font-medium mb-4 text-lg">Web Developer / Chief Marketing Officer</p>
                     <div class="flex justify-center space-x-6 mt-4">
                         <a href="#" class="text-gray-500 hover:text-gray-900 transition font-medium">GitHub</a>
@@ -70,6 +70,7 @@
     <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200 mt-auto">
         &copy; 2026 QRing.io. All rights reserved.
     </footer>
+
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -78,6 +79,7 @@
             menu.classList.toggle('hidden');
         });
     </script>
+    
     <script>
         const observerOptions = {
             root: null,
@@ -88,18 +90,46 @@
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // When the element comes into view, fade it in and slide it up
                     entry.target.classList.add('opacity-100', 'translate-y-0');
                     entry.target.classList.remove('opacity-0', 'translate-y-10');
-                    observer.unobserve(entry.target); // Only animate once
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Find all elements with the 'reveal' class and set their initial hidden state
         document.querySelectorAll('.reveal').forEach((el) => {
             el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
             observer.observe(el);
+        });
+    </script>
+
+    <script>
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+        
+        document.querySelectorAll('.hacker-text').forEach(element => {
+            element.addEventListener('mouseover', event => {
+                let iterations = 0;
+                const originalText = event.target.dataset.value;
+                
+                clearInterval(element.interval);
+                
+                element.interval = setInterval(() => {
+                    event.target.innerText = event.target.innerText.split("")
+                        .map((letter, index) => {
+                            if(index < iterations) {
+                                return originalText[index];
+                            }
+                            return letters[Math.floor(Math.random() * letters.length)];
+                        })
+                        .join("");
+                    
+                    if(iterations >= originalText.length) { 
+                        clearInterval(element.interval);
+                    }
+                    
+                    iterations += 1 / 3;
+                }, 30);
+            });
         });
     </script>
 </body>
