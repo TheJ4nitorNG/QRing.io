@@ -4,20 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Paper | QRing.io</title>
-    <meta name="title" content="QRing.io | Post-Quantum Privacy">
-    <meta name="description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://qring.io/">
-    <meta property="og:title" content="QRing.io | Post-Quantum Privacy">
-    <meta property="og:description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
-    <meta property="og:image" content="https://qring.io/preview-image.png">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://qring.io/">
-    <meta property="twitter:title" content="QRing.io | Post-Quantum Privacy">
-    <meta property="twitter:description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
-    <meta property="twitter:image" content="https://qring.io/preview-image.png">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans flex flex-col min-h-screen">
@@ -28,7 +14,7 @@
             
             <div class="space-x-6 hidden md:flex items-center">
                 <a href="benchmarks.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Benchmarks">Benchmarks</a>
-                <a href="paper.html" class="text-blue-600 font-bold hacker-text" data-value="arXiv">arXiv</a>
+                <a href="paper.html" class="text-blue-600 font-bold hacker-text" data-value="Download PDF">Download PDF</a>
                 <a href="team.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Team">Team</a>
             </div>
 
@@ -42,7 +28,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-b border-gray-200 absolute w-full left-0 shadow-lg pb-4 pt-2 px-6">
             <div class="flex flex-col space-y-4">
                 <a href="benchmarks.html" class="text-lg font-medium hover:text-blue-600">Benchmarks</a>
-                <a href="paper.html" class="text-lg font-bold text-blue-600">arXiv</a>
+                <a href="paper.html" class="text-lg font-bold text-blue-600">Download PDF</a>
                 <a href="team.html" class="text-lg font-medium hover:text-blue-600">Team</a>
             </div>
         </div>
@@ -54,15 +40,16 @@
             <p class="text-lg text-gray-600 mb-10 leading-relaxed">
                 Dive deep into the mathematics, proofs, and engineering architecture behind QRing. Learn exactly how we implemented NIST-standardized lattice cryptography (Kyber768 and Dilithium3) alongside MatRiCT+, LACT+, and Lantern protocols.
             </p>
-            <a href="qring-paper.pdf" target="_blank" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 hacker-text" data-value="View on arXiv / Download PDF">
-                View on arXiv / Download PDF
+            <a href="qring-paper.pdf" target="_blank" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 hacker-text" data-value="Download the PDF">
+                Download the PDF
             </a>
             <p class="text-sm text-gray-400 mt-6">File format: PDF. Requires a standard PDF viewer.</p>
         </div>
     </main>
 
-    <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200 mt-auto">
-        &copy; 2026 QRing.io. All rights reserved.
+    <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200 mt-auto bg-gray-50">
+        <p>&copy; 2026 QRing.io. All rights reserved.</p>
+        <p class="mt-2">Actively maintained by MultAI Technologies Inc.</p>
     </footer>
 
     <script>
