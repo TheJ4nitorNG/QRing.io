@@ -4,11 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Paper | QRing.io</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-900 font-sans flex flex-col min-h-screen">
+    
+    <meta name="title" content="QRing.io | Post-Quantum Privacy">
+    <meta name="description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qring.io/">
+    <meta property="og:title" content="QRing.io | Post-Quantum Privacy">
+    <meta property="og:description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
+    <meta property="og:image" content="https://qring.io/preview-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://qring.io/">
+    <meta property="twitter:title" content="QRing.io | Post-Quantum Privacy">
+    <meta property="twitter:description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
+    <meta property="twitter:image" content="https://qring.io/preview-image.png">
 
-    <header class="w-full relative z-50 bg-gray-50">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+
+    <header class="w-full relative z-50 bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
         <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-tighter text-blue-600 hacker-text" data-value="QRing.io">QRing.io</a>
             
@@ -18,18 +44,22 @@
                 <a href="team.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Team">Team</a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-gray-900 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-sm p-2 focus:outline-none transition-colors">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-gray-100 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
         </nav>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-b border-gray-200 absolute w-full left-0 shadow-lg pb-4 pt-2 px-6">
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-b border-gray-200 dark:border-gray-800 absolute w-full left-0 shadow-lg pb-4 pt-2 px-6">
             <div class="flex flex-col space-y-4">
-                <a href="benchmarks.html" class="text-lg font-medium hover:text-blue-600">Benchmarks</a>
+                <a href="benchmarks.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Benchmarks</a>
                 <a href="paper.html" class="text-lg font-bold text-blue-600">Download PDF</a>
-                <a href="team.html" class="text-lg font-medium hover:text-blue-600">Team</a>
+                <a href="team.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Team</a>
             </div>
         </div>
     </header>
@@ -37,17 +67,17 @@
     <main class="flex-grow py-20 px-4 flex items-center justify-center">
         <div class="max-w-3xl mx-auto text-center reveal">
             <h1 class="text-4xl md:text-5xl font-bold mb-6 hacker-text cursor-default" data-value="Read the Architecture Paper">Read the Architecture Paper</h1>
-            <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed transition-colors">
                 Dive deep into the mathematics, proofs, and engineering architecture behind QRing. Learn exactly how we implemented NIST-standardized lattice cryptography (Kyber768 and Dilithium3) alongside MatRiCT+, LACT+, and Lantern protocols.
             </p>
             <a href="qring-paper.pdf" target="_blank" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 hacker-text" data-value="Download the PDF">
                 Download the PDF
             </a>
-            <p class="text-sm text-gray-400 mt-6">File format: PDF. Requires a standard PDF viewer.</p>
+            <p class="text-sm text-gray-400 dark:text-gray-500 mt-6 transition-colors">File format: PDF. Requires a standard PDF viewer.</p>
         </div>
     </main>
 
-    <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200 mt-auto bg-gray-50">
+    <footer class="py-8 text-center text-gray-500 dark:text-gray-400 text-sm border-t border-gray-200 dark:border-gray-800 mt-auto bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
         <p>&copy; 2026 QRing.io. All rights reserved.</p>
         <p class="mt-2">Actively maintained by MultAI Technologies Inc.</p>
     </footer>
@@ -55,19 +85,10 @@
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
     </script>
-    
     <script>
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -77,50 +98,55 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.reveal').forEach((el) => {
             el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
             observer.observe(el);
         });
     </script>
-
     <script>
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
-        
         const scrambleObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const element = entry.target;
                     let iterations = 0;
                     const originalText = element.dataset.value;
-                    
                     const interval = setInterval(() => {
                         element.innerText = element.innerText.split("")
                             .map((letter, index) => {
-                                if(index < iterations) {
-                                    return originalText[index];
-                                }
+                                if(index < iterations) return originalText[index];
                                 return letters[Math.floor(Math.random() * letters.length)];
-                            })
-                            .join("");
-                        
+                            }).join("");
                         if(iterations >= originalText.length) { 
                             clearInterval(interval);
-                            element.innerText = originalText; // Failsafe to ensure exact original text
+                            element.innerText = originalText;
                         }
-                        
                         iterations += 1 / 3;
                     }, 30);
-
-                    // Stop observing the element so it only ever happens once per page load
                     observer.unobserve(element);
                 }
             });
-        }, { threshold: 0.1 }); // Triggers when 10% of the element is visible
-
-        // Attach the observer to all hacker-text elements
-        document.querySelectorAll('.hacker-text').forEach(element => {
-            scrambleObserver.observe(element);
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.hacker-text').forEach(element => { scrambleObserver.observe(element); });
+    </script>
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (document.documentElement.classList.contains('dark')) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+            }
         });
     </script>
 </body>
