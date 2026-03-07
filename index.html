@@ -17,6 +17,7 @@
     <meta property="twitter:title" content="QRing.io | Post-Quantum Privacy">
     <meta property="twitter:description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
     <meta property="twitter:image" content="https://qring.io/preview-image.png">
+    <meta id="theme-color-meta" name="theme-color" content="#f9fafb">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -209,21 +210,29 @@
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeColorMeta = document.getElementById('theme-color-meta');
 
+        // Initial Load Sync
         if (document.documentElement.classList.contains('dark')) {
             themeToggleLightIcon.classList.remove('hidden');
+            if (themeColorMeta) themeColorMeta.setAttribute('content', '#030712');
         } else {
             themeToggleDarkIcon.classList.remove('hidden');
+            if (themeColorMeta) themeColorMeta.setAttribute('content', '#f9fafb');
         }
 
+        // Click Event Sync
         themeToggleBtn.addEventListener('click', function() {
             themeToggleDarkIcon.classList.toggle('hidden');
             themeToggleLightIcon.classList.toggle('hidden');
             document.documentElement.classList.toggle('dark');
+            
             if (document.documentElement.classList.contains('dark')) {
                 localStorage.setItem('color-theme', 'dark');
+                if (themeColorMeta) themeColorMeta.setAttribute('content', '#030712');
             } else {
                 localStorage.setItem('color-theme', 'light');
+                if (themeColorMeta) themeColorMeta.setAttribute('content', '#f9fafb');
             }
         });
     </script>
