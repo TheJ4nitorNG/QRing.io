@@ -14,11 +14,13 @@
     <meta property="og:description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
     <meta property="og:image" content="https://qring.io/preview-image.png">
 
-    <script>
-        tailwind = { config: { darkMode: 'class' } };
-    </script>
-    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
     
     <script>
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
