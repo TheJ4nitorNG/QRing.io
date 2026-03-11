@@ -98,7 +98,7 @@
                 </div>
             </div>
 
-            <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 rounded-xl p-8 transition-colors">
+            <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 rounded-xl p-8 mb-16 transition-colors">
                 <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
                     <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-800/50 p-4 rounded-full">
                         <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
@@ -112,6 +112,75 @@
                             Read the official WSL Install Guide →
                         </a>
                     </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 md:p-12 shadow-sm transition-colors relative">
+                <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white hacker-text" data-value="Linux / WSL2 Installation Guide">Linux / WSL2 Installation Guide</h2>
+                
+                <div class="space-y-10 text-gray-700 dark:text-gray-300">
+                    
+                    <section>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">1. Prerequisites</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><strong>Linux OS:</strong> Ubuntu 22.04+ (or equivalent distribution) recommended.</li>
+                            <li><strong>WSL Users:</strong> Ensure you are running WSL version 2 (<code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">wsl --status</code>).</li>
+                            <li><strong>CPU Architecture Support:</strong>
+                                <ul class="list-circle list-inside ml-6 mt-2 space-y-1">
+                                    <li><em>AVX2:</em> Standard for most modern consumer CPUs.</li>
+                                    <li><em>AVX-512:</em> Recommended for high-end workstations and server instances (AWS/GCP).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">2. Downloading & Extracting</h3>
+                        <p class="mb-3">Pull down the latest 0.1.0.1 Hotfix binaries via your terminal using <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">wget</code>:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner"><code># Download the Linux AVX2 binary
+wget https://github.com/bryanjfehr/qring-releases/releases/download/0.1.0.1-wallet-transfer-bug-fix/qring-linux-avx2.tar.gz
+
+# Extract the archive and navigate into the directory
+tar -xvf qring-linux-avx2.tar.gz
+cd avx2</code></pre>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">3. Execution Permissions & Pathing</h3>
+                        <p class="mb-3">Make the binaries executable, and optionally move them to your local bin path so they can be run globally:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner"><code># Make the daemon and wallet executables
+chmod +x qmonerod qmonero-wallet-cli
+
+# (Optional) Move to bin path for global access
+sudo mv qmonerod qmonero-wallet-cli /usr/local/bin/</code></pre>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">4. Running the Node & Wallet</h3>
+                        <p class="mb-3">Start your daemon to sync with the public testnet, utilizing our priority seed node:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner mb-6"><code>qmonerod --testnet --add-priority-node seeds.qring.io:28080</code></pre>
+                        
+                        <p class="mb-3">Once the node is fully synced, open your wallet CLI in a separate terminal window:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner"><code>qmonero-wallet-cli --testnet</code></pre>
+                    </section>
+
+                    <section class="mt-8 border-t border-gray-200 dark:border-gray-800 pt-8">
+                        <h3 class="text-xl font-bold text-red-600 dark:text-red-400 mb-4">Troubleshooting</h3>
+                        <ul class="space-y-4">
+                            <li>
+                                <strong class="text-gray-900 dark:text-white">Connection Issues:</strong> If your node isn't finding peers, verify that you can reach the seed node by running:
+                                <pre class="bg-gray-100 dark:bg-gray-950 p-3 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 mt-2 mb-2 shadow-inner"><code>nc -vz seeds.qring.io 28080</code></pre>
+                                <span class="text-sm">If this fails, ensure your local network or firewall allows outgoing traffic on port 28080.</span>
+                            </li>
+                            <li>
+                                <strong class="text-gray-900 dark:text-white">Balance Showing 0:</strong> Ensure your daemon is fully synced. If you recently mined blocks and the balance isn't appearing, ensure you are using the latest <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">0.1.0.1-wallet-transfer-bug-fix</code> binaries to avoid legacy network parsing errors.
+                            </li>
+                            <li>
+                                <strong class="text-gray-900 dark:text-white">Connection Refused:</strong> Ensure the <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">qmonerod</code> daemon is actively running in the background before launching the wallet CLI.
+                            </li>
+                        </ul>
+                    </section>
+
                 </div>
             </div>
 
