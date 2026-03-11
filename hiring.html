@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiring | QRing.io</title>
+    
+    <meta id="theme-color-meta" name="theme-color" content="#f9fafb">
+
+    <meta name="title" content="QRing.io | Post-Quantum Privacy">
+    <meta name="description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qring.io/">
+    <meta property="og:title" content="QRing.io | Post-Quantum Privacy">
+    <meta property="og:description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
+    <meta property="og:image" content="https://qring.io/preview-image.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+
+    <header class="w-full relative z-50 bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+        <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter text-blue-600 hacker-text" data-value="QRing.io">QRing.io</a>
+            
+            <div class="space-x-6 hidden md:flex items-center">
+                <a href="benchmarks.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Benchmarks">Benchmarks</a>
+                <a href="roadmap.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Roadmap">Roadmap</a>
+                <a href="updates.html" class="hover:text-blue-600 font-medium hacker-text" data-value="DevLog/Updates">DevLog/Updates</a>
+                <a href="downloads.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Downloads">Downloads</a>
+                <a href="links.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Links">Links</a>
+                <a href="hiring.html" class="text-blue-600 font-bold hacker-text" data-value="Hiring">Hiring</a>
+                <a href="team.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Team">Team</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-sm p-2 focus:outline-none transition-colors">
+                    <svg id="theme-toggle-dark-icon" class="block dark:hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden dark:block w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-gray-100 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-b border-gray-200 dark:border-gray-800 absolute w-full left-0 shadow-lg pb-4 pt-2 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="benchmarks.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Benchmarks</a>
+                <a href="roadmap.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Roadmap</a>
+                <a href="updates.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">DevLog/Updates</a>
+                <a href="downloads.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Downloads</a>
+                <a href="links.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Links</a>
+                <a href="hiring.html" class="text-lg font-bold text-blue-600">Hiring</a>
+                <a href="team.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Team</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow py-16 px-4">
+        <div class="max-w-4xl mx-auto reveal">
+            
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 hacker-text cursor-default" data-value="Join MultAI Technologies">Join MultAI Technologies</h1>
+                <p class="text-gray-600 dark:text-gray-400 text-lg transition-colors max-w-2xl mx-auto">
+                    We are building the infrastructure to survive Q-Day. Join our elite swarm of AI-augmented engineers and help scale the world's first production-ready, post-quantum privacy network.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                
+                <article class="bg-white dark:bg-gray-900 border border-blue-200 dark:border-blue-900/50 rounded-2xl p-8 md:p-10 shadow-sm transition-colors ring-1 ring-blue-500/10">
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 hacker-text" data-value="Senior Systems Engineer">Senior Systems Engineer</h2>
+                            <p class="text-blue-600 dark:text-blue-400 font-semibold text-lg">C++ / Windows / Post-Quantum Cryptography</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 md:justify-end">
+                            <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700">Remote (Canada) / Alberta</span>
+                            <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium border border-green-200 dark:border-green-800/50">$120k – $165k CAD + Equity</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8 text-gray-700 dark:text-gray-300">
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">The Mission</h3>
+                            <p class="leading-relaxed">
+                                MultAI Technologies is commercializing the world's first production-ready, post-quantum Layer 1 privacy network (QRing) and its accompanying Layer 2 PQ-WASM execution engine (Qubit). We have solved the lattice-bloat problem. Now, we are scaling.
+                            </p>
+                            <p class="leading-relaxed mt-2">
+                                We are seeking a Senior Systems Engineer to own the native Windows integration of the QRing protocol and lead the architectural optimization of our L2 ecosystem. You will not just be writing code; you will be acting as a node in our Grand Agentic Station HQ (GAS:HQ). We arm our senior engineers with Gemini Code Assist Enterprise and ephemeral AI swarm instances to 10x your output. You will architect the solutions, delegate the syntax to the swarm, and rigorously audit the compiled output.
+                            </p>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">What You Will Do</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Engineer native Windows executable (.exe) builds for the QRing node software from our core Linux C++ MVP.</li>
+                                <li>Implement custom memory allocation routines ensuring strict alignment for Advanced Vector Extensions 512 (AVX-512) and Integer Fused Multiply-Add (IFMA) operations.</li>
+                                <li>Drive the deployment and optimization of the Post-Quantum WebAssembly (PQ-WASM) L2 prototype.</li>
+                                <li>Utilize our GAS:HQ swarm architecture to generate, test, and deploy code in ephemeral, zero-trust GCP environments.</li>
+                                <li>Transition complex cryptographic workloads safely between operating system kernels without triggering processor faulting.</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">What You Bring</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Deep C++ Expertise:</strong> 7+ years of low-level systems programming. You know how the Windows kernel handles memory.</li>
+                                <li><strong>Hardware Awareness:</strong> Experience with SIMD instructions, CPU microarchitectures, and hardware vectorization.</li>
+                                <li><strong>AI-Native Mindset:</strong> You view LLMs and AI coding assistants as force multipliers. You are highly proficient in planning, delegation, and rapidly iterating project goals via AI tooling.</li>
+                                <li><strong>Bonus:</strong> Background in applied cryptography, zero-knowledge proofs, or Web3 node architecture.</li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
+                        <a href="mailto:careers@qring.io?subject=Application: Senior Systems Engineer (Windows)" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition shadow-md hover:shadow-lg hacker-text" data-value="Apply for this Role">Apply for this Role</a>
+                    </div>
+                </article>
+
+                <article class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 md:p-10 shadow-sm transition-colors ring-1 ring-gray-900/5 dark:ring-white/5">
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 hacker-text" data-value="Senior Apple Systems Engineer">Senior Apple Systems Engineer</h2>
+                            <p class="text-gray-600 dark:text-gray-400 font-semibold text-lg">C++ / iOS & macOS / ARMv9</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 md:justify-end">
+                            <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700">Remote (Canada) / Alberta</span>
+                            <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium border border-green-200 dark:border-green-800/50">$120k – $162.5k CAD + Equity</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8 text-gray-700 dark:text-gray-300">
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">The Mission</h3>
+                            <p class="leading-relaxed">
+                                MultAI Technologies is building the infrastructure to survive Q-Day. We are migrating our mathematically verified, lattice-based Layer 1 network into the hands of standard consumers.
+                            </p>
+                            <p class="leading-relaxed mt-2">
+                                We need a Senior Apple Systems Engineer capable of bridging hardcore cryptographic C++ with native iOS and macOS environments. You will be equipped with our proprietary GAS:HQ AI swarm orchestration platform, utilizing Gemini Code Assist Enterprise to automate rote development while you focus purely on high-level Darwin kernel integrations and ARMv9 hardware optimizations.
+                            </p>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">What You Will Do</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Transform our operational Linux C++ build into highly optimized, native Apple (iOS/macOS) applications.</li>
+                                <li>Interface custom memory allocators directly with Apple's Darwin kernel to maintain the exact alignments required for hardware-accelerated polynomial math.</li>
+                                <li>Implement specialized matrix-based Number Theoretic Transforms (MatNTT) utilizing the ARMv9 Scalable Matrix Extension (SME).</li>
+                                <li>Operate within the GAS:HQ framework, dictating deterministic Markdown tracks (spec.md and plan.md) to drive autonomous developer agents in isolated VPC sandboxes.</li>
+                                <li>Ensure consumer nodes can process millions of polynomial multiplications over finite rings with zero thermal throttling.</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">What You Bring</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Apple Ecosystem Mastery:</strong> 7+ years of experience with C++, Objective-C/Swift bridging, and native Apple application lifecycles.</li>
+                                <li><strong>Silicon Optimization:</strong> Deep understanding of Apple Silicon (M-series) architecture, cache lines, and ARMv9 vectorization.</li>
+                                <li><strong>The "Director" Paradigm:</strong> You are tired of manually typing boilerplate. You excel at defining strict parameters, delegating to AI agents, and reviewing PRs generated by the swarm.</li>
+                                <li><strong>Bonus:</strong> Familiarity with NIST post-quantum standards (ML-KEM, ML-DSA).</li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
+                        <a href="mailto:careers@qring.io?subject=Application: Senior Apple Systems Engineer" class="inline-block bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-800 dark:hover:bg-white transition shadow-md hover:shadow-lg hacker-text" data-value="Apply for this Role">Apply for this Role</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-gray-500 dark:text-gray-400 text-sm border-t border-gray-200 dark:border-gray-800 mt-auto bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+        <p>&copy; 2026 QRing.io. All rights reserved.</p>
+        <p class="mt-2">Actively maintained by MultAI Technologies Inc.</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+    </script>
+    <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
+            observer.observe(el);
+        });
+    </script>
+    <script>
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+        const scrambleObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    let iterations = 0;
+                    const originalText = element.dataset.value;
+                    const interval = setInterval(() => {
+                        element.innerText = element.innerText.split("")
+                            .map((letter, index) => {
+                                if(index < iterations) return originalText[index];
+                                return letters[Math.floor(Math.random() * letters.length)];
+                            }).join("");
+                        if(iterations >= originalText.length) { 
+                            clearInterval(interval);
+                            element.innerText = originalText;
+                        }
+                        iterations += 1 / 3;
+                    }, 30);
+                    observer.unobserve(element);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.hacker-text').forEach(element => { scrambleObserver.observe(element); });
+    </script>
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeColorMeta = document.getElementById('theme-color-meta');
+
+        if (document.documentElement.classList.contains('dark') && themeColorMeta) {
+            themeColorMeta.setAttribute('content', '#030712');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+                if (themeColorMeta) themeColorMeta.setAttribute('content', '#030712');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+                if (themeColorMeta) themeColorMeta.setAttribute('content', '#f9fafb');
+            }
+        });
+    </script>
+</body>
+</html>
