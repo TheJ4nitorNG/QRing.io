@@ -65,9 +65,9 @@
                 <a href="benchmarks.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Benchmarks</a>
                 <a href="roadmap.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Roadmap</a>
                 <a href="updates.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">DevLog/Updates</a>
-                <a href="downloads.html" class="text-lg font-bold text-blue-600 dark:text-gray-200">Downloads</a>
+                <a href="downloads.html" class="text-lg font-bold text-blue-600">Downloads</a>
                 <a href="links.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Links</a>
-                <a href="hiring.html" class="text-lg font-medium hover:text-blue-600">Hiring</a>
+                <a href="hiring.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Hiring</a>
                 <a href="team.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Team</a>
             </div>
         </div>
@@ -86,7 +86,7 @@
                 <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-8 shadow-sm transition-colors text-center hover:shadow-md flex flex-col">
                     <h2 class="text-2xl font-bold mb-4 hacker-text" data-value="Linux (64-bit)">Linux (64-bit)</h2>
                     <p class="text-gray-500 dark:text-gray-400 mb-6 flex-grow">Latest CLI Wallet & Daemon for production environments.</p>
-                    <a href="https://github.com/bryanjfehr/qring-releases/releases/download/0.1.0.1-wallet-transfer-bug-fix/qring-linux-avx2.tar.gz" target="_blank" class="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition hacker-text" data-value="Download .tar.gz">Download .tar.gz</a>
+                    <a href="https://github.com/bryanjfehr/qring-releases/releases/tag/0.1.0.2-testnet" target="_blank" class="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition hacker-text" data-value="Download Release">Download Release</a>
                 </div>
                 
                 <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-8 shadow-sm transition-colors text-center hover:shadow-md flex flex-col">
@@ -102,7 +102,7 @@
                 </div>
             </div>
 
-            <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 rounded-xl p-8 mb-16 transition-colors">
+            <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 rounded-xl p-8 mb-8 transition-colors">
                 <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
                     <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-800/50 p-4 rounded-full">
                         <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
@@ -119,6 +119,16 @@
                 </div>
             </div>
 
+            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-xl p-6 mb-8 flex items-start gap-4">
+                <div class="text-red-600 dark:text-red-400 mt-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-red-800 dark:text-red-400 mb-1">CRITICAL ACTION REQUIRED FOR EXISTING MINERS</h4>
+                    <p class="text-red-700 dark:text-red-300 text-sm">If you started mining before version <strong>0.1.0.2</strong>, you will need to delete your local blockchain data! This is located at <code>data/lmdb/</code>. If the daemon won't sync, delete this folder and try starting it again.</p>
+                </div>
+            </div>
+
             <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 md:p-12 shadow-sm transition-colors relative">
                 <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white hacker-text" data-value="Linux / WSL2 Installation Guide">Linux / WSL2 Installation Guide</h2>
                 
@@ -127,60 +137,60 @@
                     <section>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">1. Prerequisites</h3>
                         <ul class="list-disc list-inside space-y-2">
-                            <li><strong>Linux OS:</strong> Ubuntu 22.04+ (or equivalent distribution) recommended.</li>
-                            <li><strong>WSL Users:</strong> Ensure you are running WSL version 2 (<code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">wsl --status</code>).</li>
-                            <li><strong>CPU Architecture Support:</strong>
+                            <li><strong>Linux OS:</strong> Ubuntu 22.04+ recommended.</li>
+                            <li><strong>WSL2:</strong> Ensure you are running WSL version 2 (<code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">wsl --status</code>).</li>
+                            <li><strong>CPU Support:</strong>
                                 <ul class="list-circle list-inside ml-6 mt-2 space-y-1">
-                                    <li><em>AVX2:</em> Standard for most modern consumer CPUs.</li>
-                                    <li><em>AVX-512:</em> Recommended for high-end workstations and server instances (AWS/GCP).</li>
+                                    <li><em>AVX2:</em> For most modern CPUs.</li>
+                                    <li><em>AVX512:</em> For high-end workstations and servers (GCE/AWS instances).</li>
                                 </ul>
                             </li>
                         </ul>
                     </section>
 
                     <section>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">2. Downloading & Extracting</h3>
-                        <p class="mb-3">Pull down the latest 0.1.0.1 Hotfix binaries via your terminal using <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">wget</code>:</p>
-                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner"><code># Download the Linux AVX2 binary
-wget https://github.com/bryanjfehr/qring-releases/releases/download/0.1.0.1-wallet-transfer-bug-fix/qring-linux-avx2.tar.gz
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">2. Downloading the Binaries</h3>
+                        <p class="mb-3">You can download the latest release from the <a href="https://github.com/bryanjfehr/qring-releases/releases/download/0.1.0.2-testnet/qring-linux-avx2.tar.gz" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">QRing GitHub Releases page</a>.</p>
+                        <p class="mb-3">Using <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">wget</code> (replace &lt;VERSION&gt; and &lt;ARCH&gt;):</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner"><code># Example for AVX2:
+wget https://github.com/bryanjfehr/qring-releases/releases/download/0.1.0.2-testnet/qring-linux-avx2.tar.gz
 
-# Extract the archive and navigate into the directory
-tar -xvf qring-linux-avx2.tar.gz
-cd avx2</code></pre>
+# Example for AVX512:
+wget https://github.com/bryanjfehr/qring-releases/releases/download/0.1.0.2-testnet/qring-linux-avx512.tar.gz</code></pre>
                     </section>
 
                     <section>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">3. Execution Permissions & Pathing</h3>
-                        <p class="mb-3">Make the binaries executable, and optionally move them to your local bin path so they can be run globally:</p>
-                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner"><code># Make the daemon and wallet executables
-chmod +x qmonerod qmonero-wallet-cli
-
-# (Optional) Move to bin path for global access
-sudo mv qmonerod qmonero-wallet-cli /usr/local/bin/</code></pre>
-                    </section>
-
-                    <section>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">4. Running the Node & Wallet</h3>
-                        <p class="mb-3">Start your daemon to sync with the public testnet, utilizing our priority seed node:</p>
-                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner mb-6"><code>qmonerod --testnet --add-priority-node seeds.qring.io:28080</code></pre>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">3. Installation</h3>
                         
-                        <p class="mb-3">Once the node is fully synced, open your wallet CLI in a separate terminal window:</p>
-                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner"><code>qmonero-wallet-cli --testnet</code></pre>
+                        <p class="font-bold mb-2 text-gray-900 dark:text-white">1. Extract the archive:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner mb-6"><code>tar -xvf qring-linux-avx2.tar.gz
+cd qring-linux-avx2</code></pre>
+
+                        <p class="font-bold mb-2 text-gray-900 dark:text-white">2. Make binaries executable:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner mb-6"><code>chmod +x qmonerod qmonero-wallet-cli</code></pre>
+
+                        <p class="font-bold mb-2 text-gray-900 dark:text-white">3. Move to path (Optional):</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner"><code>sudo mv qmonerod qmonero-wallet-cli /usr/local/bin/</code></pre>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">4. Running the Node</h3>
+                        <p class="mb-3">Start your node to sync with the testnet:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner mb-6"><code>./qmonerod --testnet</code></pre>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">5. Running the Wallet</h3>
+                        <p class="mb-3">Once the node is synced, open your wallet:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-950 p-4 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 shadow-inner"><code>./qmonero-wallet-cli --testnet</code></pre>
                     </section>
 
                     <section class="mt-8 border-t border-gray-200 dark:border-gray-800 pt-8">
-                        <h3 class="text-xl font-bold text-red-600 dark:text-red-400 mb-4">Troubleshooting</h3>
+                        <h3 class="text-xl font-bold text-red-600 dark:text-red-400 mb-4 uppercase tracking-wide">Troubleshooting</h3>
                         <ul class="space-y-4">
                             <li>
-                                <strong class="text-gray-900 dark:text-white">Connection Issues:</strong> If your node isn't finding peers, verify that you can reach the seed node by running:
-                                <pre class="bg-gray-100 dark:bg-gray-950 p-3 rounded-lg overflow-x-auto text-sm font-mono text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-800 mt-2 mb-2 shadow-inner"><code>nc -vz seeds.qring.io 28080</code></pre>
-                                <span class="text-sm">If this fails, ensure your local network or firewall allows outgoing traffic on port 28080.</span>
+                                <strong class="text-gray-900 dark:text-white">Balance Showing 0:</strong> Ensure your node is fully synced. If you recently mined blocks and the balance isn't appearing, ensure you are using the latest <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">0.1.0.2-testnet</code> binaries.
                             </li>
                             <li>
-                                <strong class="text-gray-900 dark:text-white">Balance Showing 0:</strong> Ensure your daemon is fully synced. If you recently mined blocks and the balance isn't appearing, ensure you are using the latest <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">0.1.0.1-wallet-transfer-bug-fix</code> binaries to avoid legacy network parsing errors.
-                            </li>
-                            <li>
-                                <strong class="text-gray-900 dark:text-white">Connection Refused:</strong> Ensure the <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">qmonerod</code> daemon is actively running in the background before launching the wallet CLI.
+                                <strong class="text-gray-900 dark:text-white">Connection Refused:</strong> Ensure <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm font-mono">qmonerod</code> is running in the background before launching the wallet.
                             </li>
                         </ul>
                     </section>
