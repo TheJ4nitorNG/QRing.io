@@ -63,10 +63,10 @@
                 <a href="faq.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Why QRing?</a>
                 <a href="benchmarks.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Benchmarks</a>
                 <a href="roadmap.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Roadmap</a>
-                <a href="updates.html" class="text-lg font-bold text-blue-600 dark:text-gray-200">DevLog/Updates</a>
+                <a href="updates.html" class="text-lg font-bold text-blue-600">DevLog/Updates</a>
                 <a href="downloads.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Downloads</a>
                 <a href="links.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Links</a>
-                <a href="hiring.html" class="text-lg font-medium hover:text-blue-600">Hiring</a>
+                <a href="hiring.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Hiring</a>
                 <a href="team.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Team</a>
             </div>
         </div>
@@ -83,7 +83,28 @@
             </div>
 
             <div class="space-y-12">
-                <article class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-sm transition-colors ring-1 ring-green-500/10">
+                
+                <article class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-sm transition-colors ring-1 ring-red-500/10">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Critical Update</span>
+                        <time class="text-sm text-gray-500 dark:text-gray-400 font-mono">March 18, 2026</time>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 hacker-text" data-value="Release 0.1.0.2-testnet">Release 0.1.0.2-testnet</h2>
+                    <div class="prose dark:prose-invert text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>
+                            <strong>FIX:</strong> Fixed a bug that caused the local blockchain data to become corrupt when using the <code>sweep_unmixable</code> option.
+                        </p>
+                        <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-4 rounded-r mt-4">
+                            <p class="font-bold text-red-800 dark:text-red-200 m-0">ACTION REQUIRED:</p>
+                            <p class="text-red-700 dark:text-red-300 text-sm mt-1">If you started mining before version 0.1.0.2, you will need to delete your local blockchain data! This is located at <code>data/lmdb/</code>. If your daemon won't sync, delete this folder and start it again.</p>
+                        </div>
+                        <a href="downloads.html" class="text-blue-600 dark:text-blue-400 font-bold hover:underline inline-flex items-center mt-4">
+                            Get the Updated Build →
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-sm transition-colors">
                     <div class="flex items-center justify-between mb-4">
                         <span class="bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Patch Notes</span>
                         <time class="text-sm text-gray-500 dark:text-gray-400 font-mono">March 10, 2026</time>
@@ -96,9 +117,6 @@
                         <p>
                             We highly recommend all testnet participants update their node and wallet binaries to the latest version to ensure smooth peer-to-peer transactions. 
                         </p>
-                        <a href="downloads.html" class="text-blue-600 dark:text-blue-400 font-bold hover:underline inline-flex items-center">
-                            Get the Updated Build →
-                        </a>
                     </div>
                 </article>
 
@@ -118,9 +136,6 @@
                         <p>
                             Thank you to everyone who immediately jumped in to help stress-test the limits of the chain today. To get started mining and running your own node, head over to the Downloads page to grab the binaries.
                         </p>
-                        <a href="downloads.html" class="text-blue-600 dark:text-blue-400 font-bold hover:underline inline-flex items-center">
-                            Get the Testnet Build →
-                        </a>
                     </div>
                 </article>
 
