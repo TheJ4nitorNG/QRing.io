@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Newsletter | QRing.io</title>
+    
+    <meta id="theme-color-meta" name="theme-color" content="#f9fafb">
+
+    <meta name="title" content="QRing.io | Post-Quantum Privacy">
+    <meta name="description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qring.io/">
+    <meta property="og:title" content="QRing.io | Post-Quantum Privacy">
+    <meta property="og:description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
+    <meta property="og:image" content="https://qring.io/preview-image.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+
+    <header class="w-full relative z-50 bg-gray-50 dark:bg-gray-950 transition-colors duration-300 border-b border-gray-200 dark:border-gray-800">
+        <nav class="p-6 max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter text-blue-600 hacker-text" data-value="QRing.io">QRing.io</a>
+            
+            <div class="space-x-4 lg:space-x-6 hidden md:flex items-center text-sm lg:text-base">
+                <a href="why.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Why QRing?">Why QRing?</a>
+                <a href="faq.html" class="hover:text-blue-600 font-medium hacker-text" data-value="FAQ">FAQ</a>
+                <a href="benchmarks.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Benchmarks">Benchmarks</a>
+                <a href="roadmap.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Roadmap">Roadmap</a>
+                <a href="updates.html" class="hover:text-blue-600 font-medium hacker-text" data-value="DevLog">DevLog/Updates</a>
+                <a href="newsletter.html" class="text-blue-600 font-bold hacker-text" data-value="Newsletter">Newsletter</a>
+                <a href="downloads.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Downloads">Downloads</a>
+                <a href="links.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Links">Links</a>
+                <a href="hiring.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Hiring">Hiring</a>
+                <a href="team.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Team">Team</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-sm p-2 focus:outline-none transition-colors">
+                    <svg id="theme-toggle-dark-icon" class="block dark:hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden dark:block w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-gray-100 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-b border-gray-200 dark:border-gray-800 absolute w-full left-0 shadow-lg pb-4 pt-2 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="why.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Why QRing?</a>
+                <a href="faq.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">FAQ</a>
+                <a href="benchmarks.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Benchmarks</a>
+                <a href="roadmap.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Roadmap</a>
+                <a href="updates.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">DevLog/Updates</a>
+                <a href="newsletter.html" class="text-lg font-bold text-blue-600">Newsletter</a>
+                <a href="downloads.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Downloads</a>
+                <a href="links.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Links</a>
+                <a href="hiring.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Hiring</a>
+                <a href="team.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Team</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow py-16 px-4 md:px-8">
+        <div class="max-w-5xl mx-auto">
+            
+            <div class="text-center mb-16 reveal">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 hacker-text cursor-default" data-value="QRing Newsletter">QRing Newsletter</h1>
+                <p class="text-gray-600 dark:text-gray-400 text-lg transition-colors max-w-2xl mx-auto">
+                    Deep-dive reports, threat intelligence, and architectural analysis from the QRing team.
+                </p>
+            </div>
+
+            <div class="space-y-16">
+                <article class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-8 md:p-12 shadow-xl transition-colors reveal">
+                    
+                    <header class="mb-10 border-b border-gray-200 dark:border-gray-800 pb-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Threat Intelligence</span>
+                            <time class="text-sm text-gray-500 dark:text-gray-400 font-mono">April 3, 2026</time>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4 hacker-text" data-value="The Q-Day Acceleration">
+                            The Q-Day Acceleration
+                        </h2>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 font-medium">
+                            How Early 2026 Rewrote the Quantum Threat Timeline.
+                        </p>
+                    </header>
+
+                    <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed space-y-8">
+                        
+                        <p>
+                            The timeline for "Q-Day"—the theoretical horizon when a cryptographically relevant quantum computer (CRQC) successfully executes Shor's algorithm to break public-key infrastructure—has long been a subject of intense debate, recalibration, and occasionally, institutional complacency. Merely a month ago, risk modeling frameworks and expert consensus comfortably converged on a threat horizon centered around 2031 to 2035. This assumption relied heavily on the premise that millions of physical qubits would be required to manage the massive overhead of traditional quantum error correction (QEC), specifically the two-dimensional planar surface code.
+                        </p>
+
+                        <p>
+                            However, a sudden and profound convergence of unprecedented hardware scaling and radical algorithmic optimization in the first quarter of 2026 has systematically dismantled these baseline assumptions. The transition from theoretical physics to applied quantum engineering has accelerated the threat matrix, shifting Q-Day from a distant, abstract milestone to an imminent operational crisis.
+                        </p>
+
+                        <p>
+                            This deep-dive analysis explores the technical mechanisms driving this compression, the specific vulnerabilities of legacy cryptography, and the profound implications for global digital infrastructure. The evidence strongly suggests that the window for pre-quantum mitigation has compressed dramatically, necessitating an immediate pivot from theoretical planning to aggressive, hardware-level post-quantum cryptography (PQC) deployment.
+                        </p>
+
+                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">The Algorithmic Paradigm Shift: Erasing the Surface Code Bottleneck</h3>
+                        
+                        <p>
+                            Historically, the timeline for Q-Day was anchored by the immense overhead required for quantum error correction. Quantum bits, or qubits, are inherently fragile, losing coherence in microseconds due to environmental noise, stray photons, flux noise, and charge fluctuations. To execute deep circuits without state degradation, physical qubits must form stable, error-corrected logical qubits.
+                        </p>
+
+                        <p>
+                            Under the industry-standard surface code model, this requires a physical-to-logical qubit ratio of roughly 1000:1. Based on this architecture, early 2025 benchmarks suggested that breaking 2048-bit RSA encryption would require approximately one million physical qubits operating over a period of roughly five days. Given the immense engineering challenges of building a million-qubit machine, a 2030s Q-Day horizon appeared highly rational.
+                        </p>
+
+                        <p class="text-xl font-bold text-red-600 dark:text-red-400 my-8 pl-4 border-l-4 border-red-500">
+                            This fundamental assumption was entirely invalidated in early 2026 by the application of Quantum Low-Density Parity-Check (qLDPC) codes.
+                        </p>
+
+                        <ul class="list-disc pl-6 space-y-3">
+                            <li>Unlike classical surface codes, which possess low encoding rates and require periodic boundary conditions, qLDPC codes allow multiple logical qubits to be encoded within a single, highly efficient block of physical qubits.</li>
+                            <li>This sparse parity-check constraint framework enables more efficient error syndrome extraction and achieves encoding rates approaching thirty percent.</li>
+                            <li>The architectural framework drastically reduces the physical qubit requirement by up to two orders of magnitude compared to legacy models.</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-10 mb-4">The Pinnacle Architecture</h4>
+                        <p>
+                            The most disruptive articulation of qLDPC efficiency arrived in February 2026 with the publication of the "Pinnacle Architecture" by researchers at Iceberg Quantum. The architecture achieves its unprecedented efficiency through two structural innovations:
+                        </p>
+
+                        <ul class="space-y-4">
+                            <li class="bg-gray-100 dark:bg-gray-800/50 p-4 rounded-lg"><strong>The Magic Engine:</strong> A dedicated module that performs simultaneous magic state distillation and injection within a single QLDPC code block. By dedicating a module to provide a constant throughput of high-fidelity T-states, the Pinnacle Architecture minimizes idle computational time.</li>
+                            <li class="bg-gray-100 dark:bg-gray-800/50 p-4 rounded-lg"><strong>Clifford Frame Cleaning:</strong> A technique allowing multiple processing units to access a shared quantum memory in parallel. By commuting Clifford gates into the measurement frame, the system completely bypasses the time-intensive physical implementation of entangling CNOT gates.</li>
+                        </ul>
+
+                        <p class="font-medium">
+                            The resource estimates derived from the Pinnacle Architecture fundamentally rewrite the timeline for RSA-2048 cryptanalysis. By trading time for space, an absolute minimum configuration requires a mere 98,000 physical qubits to complete the factorization in one month. This represents an exact order of magnitude reduction from the 2025 surface code benchmarks.
+                        </p>
+
+                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">The True Target: Elliptic Curve Cryptography</h3>
+                        
+                        <p>
+                            While RSA-2048 has long served as the psychological benchmark for Q-Day, elliptic curve cryptography (ECC) presents a significantly more fragile target that secures the vast majority of modern digital infrastructure.
+                        </p>
+
+                        <p>
+                            In March 2026, researchers from Caltech and Oratomic demonstrated that Shor's algorithm could be executed at cryptographically relevant scales using as few as 10,000 reconfigurable atomic qubits. Because neutral atoms are trapped in optical tweezers and can be dynamically moved during computation, they natively support the complex, non-local, all-to-all connectivity graphs required by Lifted-Product and Bivariate Bicycle qLDPC codes. Fixed-grid architectures struggle to implement these codes due to wire routing constraints, but neutral atoms bypass this physical limitation entirely.
+                        </p>
+
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-800/50 my-8">
+                            <p class="font-bold text-blue-900 dark:text-blue-300 mb-4">For ECC-256, which underpins modern secure internet communications, the implications are staggering:</p>
+                            <ul class="list-disc pl-6 space-y-2 text-blue-800 dark:text-blue-200">
+                                <li>A space-efficient architecture requires an astonishingly low <strong>9,739 physical qubits</strong>.</li>
+                                <li>By scaling the hardware to just <strong>26,000 physical qubits</strong> to enable greater algorithmic parallelism, the runtime to break ECC-256 compresses to a mere <strong>10 days</strong>.</li>
+                            </ul>
+                        </div>
+
+                        <p>
+                            The cryptographic community's intense fixation on RSA-2048 has created a dangerous false sense of temporal distance. Elliptic curve cryptography falls first on every single architecture, requiring dramatically fewer resources than integer factorization.
+                        </p>
+
+                        <div class="my-10 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                            <table class="min-w-full bg-white dark:bg-gray-900 text-left text-sm">
+                                <caption class="bg-gray-100 dark:bg-gray-800 p-4 font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700">A Comparative Look at Cryptographic Targets</caption>
+                                <thead class="bg-gray-50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300">
+                                    <tr>
+                                        <th class="py-3 px-4 font-semibold">Target</th>
+                                        <th class="py-3 px-4 font-semibold">Architectural Framework</th>
+                                        <th class="py-3 px-4 font-semibold">Hardware Modality</th>
+                                        <th class="py-3 px-4 font-semibold">Physical Qubits</th>
+                                        <th class="py-3 px-4 font-semibold">Estimated Runtime</th>
+                                        <th class="py-3 px-4 font-semibold">Source Benchmark</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                        <td class="py-3 px-4 font-medium">RSA-2048</td>
+                                        <td class="py-3 px-4">Surface Code (Gidney)</td>
+                                        <td class="py-3 px-4">Superconducting</td>
+                                        <td class="py-3 px-4">~1,000,000</td>
+                                        <td class="py-3 px-4">~5 Days</td>
+                                        <td class="py-3 px-4 text-gray-500">2025 Baseline</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                        <td class="py-3 px-4 font-medium">RSA-2048</td>
+                                        <td class="py-3 px-4">Pinnacle Architecture</td>
+                                        <td class="py-3 px-4">General qLDPC</td>
+                                        <td class="py-3 px-4 text-red-600 dark:text-red-400 font-bold">~98,000</td>
+                                        <td class="py-3 px-4">1 Month</td>
+                                        <td class="py-3 px-4 text-gray-500">Feb 2026</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                        <td class="py-3 px-4 font-medium">RSA-2048</td>
+                                        <td class="py-3 px-4">Oratomic Balanced</td>
+                                        <td class="py-3 px-4">Neutral Atom</td>
+                                        <td class="py-3 px-4 text-red-600 dark:text-red-400 font-bold">~102,000</td>
+                                        <td class="py-3 px-4">97 Days</td>
+                                        <td class="py-3 px-4 text-gray-500">Mar 2026</td>
+                                    </tr>
+                                    <tr class="bg-red-50 dark:bg-red-900/10 hover:bg-red-100 dark:hover:bg-red-900/20 transition-colors border-l-4 border-red-500">
+                                        <td class="py-3 px-4 font-bold text-red-900 dark:text-red-400">ECC-256</td>
+                                        <td class="py-3 px-4">Oratomic Parallel</td>
+                                        <td class="py-3 px-4">Neutral Atom</td>
+                                        <td class="py-3 px-4 font-extrabold text-red-600 dark:text-red-400">~26,000</td>
+                                        <td class="py-3 px-4 font-bold text-red-900 dark:text-red-400">10 Days</td>
+                                        <td class="py-3 px-4 text-gray-500">Mar 2026</td>
+                                    </tr>
+                                    <tr class="bg-red-50 dark:bg-red-900/10 hover:bg-red-100 dark:hover:bg-red-900/20 transition-colors border-l-4 border-red-500">
+                                        <td class="py-3 px-4 font-bold text-red-900 dark:text-red-400">ECC-256</td>
+                                        <td class="py-3 px-4">Google Quantum AI</td>
+                                        <td class="py-3 px-4">Superconducting</td>
+                                        <td class="py-3 px-4">>500,000</td>
+                                        <td class="py-3 px-4 font-extrabold text-red-600 dark:text-red-400">Minutes</td>
+                                        <td class="py-3 px-4 text-gray-500">Mar 2026</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">The Hardware Vanguard: Reaching 100 Logical Qubits</h3>
+                        
+                        <p>
+                            The theoretical algorithmic compressions published in early 2026 would remain academic exercises if not for a simultaneous, explosive acceleration in hardware delivery. The defining metric of the 2026 landscape is the unveiling of commercial quantum processing units (QPUs) capable of supporting 100 logical qubits.
+                        </p>
+
+                        <ul class="space-y-6 mt-6">
+                            <li><strong>Neutral Atoms:</strong> QuEra Computing is introducing a third-generation quantum error-corrected model featuring 100 logical qubits supported by over 10,000 physical qubits. This pushes quantum computing beyond the limits of classical simulatability. Infleqtion plans to develop a fully error-corrected quantum computer with 100 logical qubits supported by roughly 40,000 physical qubits.</li>
+                            <li><strong>Superconducting Modularity:</strong> IBM released a framework detailing its path to realizing a large-scale, fault-tolerant quantum computer designated IBM Quantum Starling by 2029. IBM relies on the bivariate bicycle (BB) codes to encode twelve logical qubits into 144 data qubits and 144 syndrome check qubits.</li>
+                            <li><strong>Trapped Ions:</strong> Quantinuum utilized its System Model H2 to generate twelve of the most reliable logical qubits ever recorded, yielding logical circuit error rates 800 times lower than physical circuit error rates.</li>
+                            <li><strong>Cat Qubits:</strong> Alice & Bob is actively constructing a $50 million lab in Paris to prototype the Graphene processor, a 100-logical-qubit quantum computer slated for completion by 2030.</li>
+                        </ul>
+
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-10 mb-4">The Classical Decoding Bottleneck Solved</h4>
+                        <p>
+                            To execute Shor's algorithm, the classical computers tasked with interpreting error syndromes and instructing the quantum processor must operate with exceptional speed. The Pinnacle analysis requires a classical reaction time of approximately ten microseconds. Historically, this created a fatal bottleneck.
+                        </p>
+                        <p>
+                            IBM's concurrent release of the Relay-BP (Disordered Memory Belief Propagation) decoder directly solves this crisis. By executing real-time XYZ-decoding directly adjacent to the quantum processor, Relay-BP achieves a ten-fold speedup over previous approaches, realizing the microsecond-scale reaction times required.
+                        </p>
+
+                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">Global Recalibration: Google's 2029 Mandate</h3>
+                        
+                        <p>
+                            The most definitive acknowledgment of this compressed threat timeline occurred in late March 2026, when Google officially revised its internal and ecosystem-wide migration deadline for Post-Quantum Cryptography (PQC) to the end of 2029.
+                        </p>
+                        <p>
+                            Google Quantum AI demonstrated that breaking the 256-bit elliptic curve discrete logarithm problem could be achieved using fewer than 1,200 logical qubits and around 90 million Toffoli gate operations. Executing the Google Echoes algorithm via the OTOC(2) protocol compresses the attack timeline against major cryptocurrencies to mere minutes.
+                        </p>
+                        <p class="text-xl font-medium text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800/50 p-6 border-l-4 border-gray-400 dark:border-gray-600 rounded-r-xl my-8">
+                            When the operator of the world's most ubiquitous web browser publicly resets its risk calculus to 2029, the cybersecurity paradigm irrevocably shifts. The 2029 deadline defines the absolute final window for infrastructure mitigation before the probability of catastrophic cryptographic failure becomes statistically intolerable.
+                        </p>
+
+                        <div class="my-10 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                            <table class="min-w-full bg-white dark:bg-gray-900 text-left text-sm">
+                                <caption class="bg-gray-100 dark:bg-gray-800 p-4 font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700">Sovereign Phase-Out Deadlines</caption>
+                                <thead class="bg-gray-50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300">
+                                    <tr>
+                                        <th class="py-3 px-4 font-semibold">Sovereign / Regulatory Body</th>
+                                        <th class="py-3 px-4 font-semibold">Key Interim Milestone</th>
+                                        <th class="py-3 px-4 font-semibold">High-Priority Migration Target</th>
+                                        <th class="py-3 px-4 font-semibold">Final Phase-Out Deadline</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                        <td class="py-3 px-4 font-bold text-blue-600 dark:text-blue-400">Google (Corporate)</td>
+                                        <td class="py-3 px-4 text-gray-500">N/A</td>
+                                        <td class="py-3 px-4">Full Internal Infrastructure</td>
+                                        <td class="py-3 px-4 font-bold text-red-600 dark:text-red-400">End of 2029</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                        <td class="py-3 px-4 font-semibold">Germany (BSI)</td>
+                                        <td class="py-3 px-4 text-gray-500">N/A</td>
+                                        <td class="py-3 px-4">High-Security Use Cases</td>
+                                        <td class="py-3 px-4 font-medium">2030 - 2031</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                        <td class="py-3 px-4 font-semibold">Canada (Cyber Centre)</td>
+                                        <td class="py-3 px-4">Dept. Plans by April 2026</td>
+                                        <td class="py-3 px-4">High-Risk Systems by 2031</td>
+                                        <td class="py-3 px-4 font-medium">End of 2035</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                        <td class="py-3 px-4 font-semibold">USA (NSA CNSA 2.0)</td>
+                                        <td class="py-3 px-4">Browsers/Firmware by 2025</td>
+                                        <td class="py-3 px-4">Networking/Routers by 2026</td>
+                                        <td class="py-3 px-4 font-medium">End of 2035</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">The Existential Vulnerabilities</h3>
+                        
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3">Blockchain and Digital Assets</h4>
+                        <p>
+                            The compressed timeline poses an asymmetrical risk to the global cryptocurrency ecosystem. Approximately 7 million Bitcoins—representing roughly 33% of the total circulating supply—are acutely exposed to immediate quantum theft. This vulnerability stems from approximately 1.7 million Bitcoins held in legacy Pay-to-Public-Key addresses where public keys are openly visible, along with 1.1 million Bitcoins attributed to Satoshi Nakamoto distributed across dormant addresses.
+                        </p>
+                        <p class="mt-4">
+                            While Ethereum is proactively migrating via account abstraction, the Bitcoin network faces a severe governance paralysis regarding post-quantum mitigation, lacking a coordinated roadmap.
+                        </p>
+
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3">Harvest Now, Decrypt Later (HNDL)</h4>
+                        <p>
+                            Adversaries are currently vacuuming up vast quantities of encrypted data transmitted over classical RSA or Diffie-Hellman key exchanges. Because the Q-Day horizon has pulled inward, any data transmitted today with a sensitivity shelf-life exceeding five years is already effectively compromised. The vulnerability window is not opening in the future; it is currently wide open.
+                        </p>
+
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3">The ICS Installed Base Problem</h4>
+                        <p>
+                            The most severe impediment to rapid PQC migration lies in Industrial Control Systems (ICS). Power grids and pipelines operate on hardware lifecycles spanning fifteen to twenty years, utilizing cryptography deeply embedded into physical Hardware Security Modules soldered directly onto logic boards. New NIST PQC algorithms require significantly larger key sizes and processing power, meaning a substation controller manufactured in 2015 simply lacks the physical memory to execute a post-quantum handshake. Achieving resilience requires massive capital expenditure to physically replace integrated circuit boards across vast geographic areas.
+                        </p>
+
+                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">Strategic Imperatives</h3>
+                        <p>
+                            The synthesis of technological breakthroughs in the first quarter of 2026 paints an unequivocal picture: the era of speculative, long-horizon quantum risk has ended. By compressing the physical qubit requirement for breaking RSA-2048 to roughly 100,000, and ECC-256 to under 26,000, algorithmic innovation has effectively fast-forwarded the threat timeline by nearly a decade.
+                        </p>
+                        <p class="text-lg font-bold text-gray-900 dark:text-white bg-red-50 dark:bg-red-900/10 p-6 rounded-xl border border-red-200 dark:border-red-900/50 mt-6">
+                            For governments, financial institutions, and operators of critical infrastructure, the grace period for theoretical planning has evaporated. The global cybersecurity apparatus must immediately follow suit, operating under the assumption that the cryptographic foundations of the digital economy are already operating on borrowed time.
+                        </p>
+
+                    </div>
+                    
+                    <footer class="mt-20 pt-10 border-t border-gray-200 dark:border-gray-800">
+                        <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-6">Citations & References</h4>
+                        <div class="h-64 overflow-y-auto pr-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg p-4 text-xs text-gray-500 dark:text-gray-400 space-y-3 break-words border border-gray-100 dark:border-gray-800">
+                            <ol class="list-decimal pl-4 space-y-2 font-mono">
+                                <li>The quantum leap that needs error correction - Qblox, <a href="https://qblox.com/newsroom/the-quantum-leap-that-needs-error-correction" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>What Is Q-Day, and How Far Away Is It—Really? - Palo Alto Networks, <a href="https://www.paloaltonetworks.com/cyberpedia/what-is-q-day" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>How IQM is tackling quantum error correction, <a href="https://meetiqm.com/blog/how-iqm-is-tackling-quantum-error-correction/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Pinnacle Architecture: 100,000 Qubits to Break RSA-2048, but at What Cost?, <a href="https://postquantum.com/post-quantum/pinnacle-architecture-break-rsa-2048-critical/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Shor's algorithm is possible with as few as 10,000 reconfigurable atomic qubits | alphaXiv, <a href="https://www.alphaxiv.org/overview/2603.28627" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Quantum Low-Density Parity-Check (qLDPC) Codes - PostQuantum.com, <a href="https://postquantum.com/quantum-computing/quantum-low-density-parity-check-qldpc-codes/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>[2602.11457] The Pinnacle Architecture: Reducing the cost of breaking RSA-2048 to 100 000 physical qubits using quantum LDPC codes - arXiv, <a href="https://arxiv.org/abs/2602.11457" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Iceberg Quantum Raises $6 Million Seed Round and Launches Pinnacle Architecture to Accelerate the Fault-Tolerant Era and Factor RSA-2048 Integers with 100000 Qubits, <a href="https://quantumcomputingreport.com/iceberg-quantum-launches-pinnacle-architecture-to-accelerate-the-fault-tolerant-era/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>The Pinnacle Architecture: Reducing the cost of breaking RSA-2048 to 100 000 physical qubits using quantum LDPC codes - arXiv, <a href="https://arxiv.org/html/2602.11457v1" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>The Pinnacle Architecture: Efficient Fault-Tolerant Quantum Computing via QLDPC Codes, <a href="https://quantumcomputingreport.com/the-pinnacle-architecture-efficient-fault-tolerant-quantum-computing-via-qldpc-codes/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>IBM lays out clear path to fault-tolerant quantum computing, <a href="https://www.ibm.com/quantum/blog/large-scale-ftqc" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Shor's algorithm is possible with as few as 10,000 reconfigurable atomic qubits - arXiv, <a href="https://arxiv.org/html/2603.28627v1" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Just 10,000 quantum bits might crack internet encryption schemes - Science News, <a href="https://www.sciencenews.org/article/quantum-bits-crack-internet-encryption" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>10,000 Qubits to Run Shor's Algorithm - PostQuantum.com, <a href="https://postquantum.com/security-pqc/10000-qubits-shors/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>A New Algorithm Shrinks the Quantum Attack Surface for ECC - PostQuantum.com, <a href="https://postquantum.com/security-pqc/algorithm-quantum-ecc/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Practical Quantum Computing By 2030 Is Likely — And So Is Q‑Day - Forrester, <a href="https://www.forrester.com/blogs/practical-quantum-computing-by-2030-is-likely-and-so-is-q-day/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Crossing the Quantum Threshold: The Path to 10000 Qubits - HPCwire, <a href="https://www.hpcwire.com/2024/04/15/crossing-the-quantum-threshold-the-path-to-10000-qubits/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>QuEra Computing Unveils Roadmap For Advanced - Quantum Zeitgeist, <a href="https://quantumzeitgeist.com/quera-computing-roadmap-100-logical-qubits/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>QuEra Unveils Ambitious Roadmap for Error-Corrected Quantum Computers Through 2026 - HPCwire, <a href="https://www.hpcwire.com/off-the-wire/quera-unveils-ambitious-roadmap-for-error-corrected-quantum-computers-through-2026/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Infleqtion Unveils 5-year Quantum Computing Roadmap, Advancing Plans to Commercialize Quantum at Scale, <a href="https://infleqtion.com/infleqtion-unveils-5-year-quantum-computing-roadmap-advancing-plans-to-commercialize-quantum-at-scale/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>The road to useful quantum computing - Moody's, <a href="https://www.moodys.com/web/en/us/insights/quantum/the-road-to-useful-quantum-computing.html" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Infleqtion, Inc. (INFQ) Analyst/Investor Day Transcript | Seeking Alpha, <a href="https://seekingalpha.com/article/4881194-infleqtion-inc-infq-analyst-investor-day-transcript" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>ISSCC Session 01 Plenary Presentation | PDF | Quantum Computing | Integrated Circuit, <a href="https://www.scribd.com/document/1001730883/ISSCC-Seesion-01-Plenery-Presentation" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Integration and Resource Estimation of Cryoelectronics for Superconducting Fault-Tolerant Quantum Computers - arXiv, <a href="https://arxiv.org/html/2601.03922v1" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>IBM begins development of the world's first fault-tolerant large-scale quantum computer, 'IBM Quantum Starling' - GIGAZINE, <a href="https://gigazine.net/gsc_news/en/20250611-ibm-worlds-first-large-scale-fault-tolerant-quantum-computer/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>QDC24 Quick Hit: IBM Plows Ahead with Quantum Hardware Development - HPCwire, <a href="https://www.hpcwire.com/2024/11/26/qdc24-quick-hit-ibm-plows-ahead-with-quantum-hardware-development/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Quantinuum and Microsoft achieve breakthrough that unlocks a new era of reliable quantum computing, <a href="https://www.quantinuum.com/blog/a-new-breakthrough-in-logical-quantum-computing-reveals-the-scale-of-our-industry-leadership" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Microsoft and Quantinuum create 12 logical qubits and demonstrate a hybrid, end-to-end chemistry simulation - Microsoft Azure Quantum Blog, <a href="https://azure.microsoft.com/en-us/blog/quantum/2024/09/10/microsoft-and-quantinuum-create-12-logical-qubits-and-demonstrate-a-hybrid-end-to-end-chemistry-simulation/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Quantinuum's H-Series hits 56 physical qubits that are all-to-all connected, and departs the era of classical simulation, <a href="https://www.quantinuum.com/blog/quantinuums-h-series-hits-56-physical-qubits-that-are-all-to-all-connected-and-departs-the-era-of-classical-simulation" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Quantinuum selected as a founding collaborator for NVIDIA Accelerated Quantum Research Center, <a href="https://www.quantinuum.com/press-releases/quantinuum-selected-as-a-founding-collaborator-for-nvidia-accelerated-quantum-research-center" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Alice & Bob To Build $50 Million Advanced Quantum Lab in Paris With Bluefors and Quantum Machines, <a href="https://bluefors.com/news/alice-bob-to-build-50-million-advanced-quantum-lab-in-paris-with-bluefors-and-quantum-machines/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Breaking News Archives - EE Times, <a href="https://www.eetimes.com/category/breaking-news/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>News Archive 2025 - Quantum Computing Report, <a href="https://quantumcomputingreport.com/news-archive-2025/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Shor, QLDPC Codes, and the Compression of RSA-2048 Resource Estimates (Part I), <a href="https://quantumcomputingreport.com/shor-qldpc-codes-and-the-compression-of-rsa-2048-resource-estimates-part-i/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>IBM Delivers New Quantum Processors, Software, and Algorithm Breakthroughs on Path to Advantage and Fault Tolerance, <a href="https://newsroom.ibm.com/2025-11-12-ibm-delivers-new-quantum-processors,-software,-and-algorithm-breakthroughs-on-path-to-advantage-and-fault-tolerance" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Google Sets 2029 Deadline for Quantum-Safe Cryptography, <a href="https://www.darkreading.com/application-security/google-2029-deadline-quantum-safe-cryptography" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Quantum frontiers may be closer than they appear - Google Blog, <a href="https://blog.google/innovation-and-ai/technology/safety-security/cryptography-migration-timeline/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Google Moves Q-Day Estimate to 2029 - Industry Experts Say the Clock Is Already Ticking, <a href="https://www.itsecurityguru.org/2026/03/27/google-moves-q-day-estimate-to-2029-industry-experts-say-the-clock-is-already-ticking/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Google Slashes Quantum Resource Requirements for Breaking Cryptocurrency Encryption, <a href="https://www.securityweek.com/google-slashes-quantum-resource-requirements-for-breaking-cryptocurrency-encryption/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>You Won't Believe What Elon Musk Just Said About Quantum Computing (Spoiler Alert: It's Good News) | The Motley Fool, <a href="https://www.fool.com/investing/2025/11/02/you-wont-believe-what-elon-musk-just-said-about-qu/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Research Publications | Google Quantum AI, <a href="https://quantumai.google/research" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>List of quantum processors - Wikipedia, <a href="https://en.wikipedia.org/wiki/List_of_quantum_processors" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Meet Willow, our state-of-the-art quantum chip - Google Blog, <a href="https://blog.google/innovation-and-ai/technology/research/google-willow-quantum-chip/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Google Just Moved the Q-Day Deadline to 2029. Here's What That Means for You., <a href="https://www.keyfactor.com/blog/google-just-moved-the-q-day-deadline-to-2029-heres-what-that-means-for-you/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Quantum Threat Timeline Report 2025 - Global Risk Institute, <a href="https://globalriskinstitute.org/publication/quantum-threat-timeline-report-2025b/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Naoris Protocol: The Answer to the Quantum Threat - Cointribune, <a href="https://www.cointribune.com/en/naoris-protocol-the-answer-to-the-quantum-threat/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Why quantum matters now for blockchain - Cambridge Judge Business School, <a href="https://www.jbs.cam.ac.uk/2025/why-quantum-matters-now-for-blockchain/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>One should not be overly optimistic! On the same day, two research papers were published showing that the threshold for quantum computing to crack Bitcoin has dropped by two orders of magnitude., <a href="https://news.futunn.com/en/post/70899746/one-should-not-be-overly-optimistic-on-the-same-day" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Really Can't Be Too Optimistic! Two Papers in One Day Slash the Barrier for Quantum Computing to Break Bitcoin by Two Orders of Magnitude, <a href="https://www.moomoo.com/news/post/67696319/really-can-t-be-too-optimistic-two-papers-in-one" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Post-quantum cryptography | NIST - National Institute of Standards and Technology, <a href="https://www.nist.gov/pqc" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>The Complete US Post-Quantum Cryptography (PQC) Regulatory Framework in 2026, <a href="https://postquantum.com/quantum-policies/us-pqc-regulatory-framework-2026/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Prepare for Q-Day with Hybrid Mode Key Exchange - Cloud Security Alliance (CSA), <a href="https://cloudsecurityalliance.org/blog/2025/11/17/prepare-for-q-day-with-hybrid-mode-key-exchange" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Get ahead of the quantum threat with a quantum-safe network strategy | Nokia.com, <a href="https://www.nokia.com/blog/get-ahead-of-the-quantum-threat-with-a-quantum-safe-network-strategy/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Q-Day in 3-5 Years: Quantum Computers Break All Encryption | Medium, <a href="https://medium.com/@DevBoostLab/q-day-3-years-away-quantum-breaks-all-encryption-ded60c61882b" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Quantum Threat Timeline - Global Risk Institute, <a href="https://globalriskinstitute.org/publication/quantum-threat-timeline/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Why quantum security is a question leaders cannot ignore right now, <a href="https://www.weforum.org/stories/2026/02/quantum-security-question-leaders-cannot-ignore/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Why Your Encrypted Data From 2019 Is Already Compromised: The Quantum Time Bomb, <a href="https://securityboulevard.com/2026/03/why-your-encrypted-data-from-2019-is-already-compromised-the-quantum-time-bomb/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Sometimes the needle jumps! Why you need to care about quantum-resistant encryption today. | database, <a href="https://blogs.oracle.com/database/pqc-why-now" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Shor, QLDPC Codes, and the Compression of RSA-2048 Resource Estimates (Part II), <a href="https://quantumcomputingreport.com/shor-qldpc-codes-and-the-compression-of-rsa-2048-resource-estimates-part-ii/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Is Q-day really nigh? Perceptions of the quantum risk - Computing UK, <a href="https://www.computing.co.uk/research/2026/is-q-day-really-nigh-perceptions-of-the-quantum-risk" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>News - Quantum Computing Report, <a href="https://quantumcomputingreport.com/news/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>PQC Roadmaps and Transition Guidance - PQShield, <a href="https://pqshield.com/pqc-transition-roadmaps-and-guidance/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Q-Day Prediction Market, <a href="https://ecc-break.com/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Quantum Briefing: Developments in Quantum Technology and in Regulations Addressing the Quantum Threat - Global Risk Institute, <a href="https://globalriskinstitute.org/publication/quantum-briefing-developments-in-quantum-technology-and-in-regulations-addressing-the-quantum-threat/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                            </ol>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-gray-500 dark:text-gray-400 text-sm mt-auto bg-gray-50 dark:bg-gray-950 transition-colors duration-300 border-t border-gray-200 dark:border-gray-800">
+        <p>&copy; 2026 QRing.io. All rights reserved.</p>
+        <p class="mt-2">Actively maintained by MultAI Technologies Inc.</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+    </script>
+    <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
+            observer.observe(el);
+        });
+    </script>
+    <script>
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+        const scrambleObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    let iterations = 0;
+                    const originalText = element.dataset.value;
+                    const interval = setInterval(() => {
+                        element.innerText = element.innerText.split("")
+                            .map((letter, index) => {
+                                if(index < iterations) return originalText[index];
+                                return letters[Math.floor(Math.random() * letters.length)];
+                            }).join("");
+                        
+                        if(iterations >= originalText.length) { 
+                            clearInterval(interval);
+                            element.innerText = originalText;
+                        }
+                        iterations += 1 / 3;
+                    }, 30);
+                    observer.unobserve(element);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.hacker-text').forEach(element => { scrambleObserver.observe(element); });
+    </script>
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (document.documentElement.classList.contains('dark')) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
