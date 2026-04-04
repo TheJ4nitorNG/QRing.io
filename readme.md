@@ -1,5 +1,6 @@
 A simple HTML website built and deployed in a couple days. qring.io - the future of secure trading.
 NAV map -
+'''text
 qring-website/
 ├── index.html          # Main landing page (Hero, Countdown, HNDL threat overview)
 ├── why.html            # High-level breakdown of the quantum threat & lattice solutions
