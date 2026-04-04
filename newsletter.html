@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Newsletter | QRing.io</title>
+    <title>Newsletter | QRing.io</title>
     
     <meta id="theme-color-meta" name="theme-color" content="#f9fafb">
 
@@ -42,7 +42,7 @@
                 <a href="faq.html" class="hover:text-blue-600 font-medium hacker-text" data-value="FAQ">FAQ</a>
                 <a href="benchmarks.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Benchmarks">Benchmarks</a>
                 <a href="roadmap.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Roadmap">Roadmap</a>
-                <a href="updates.html" class="hover:text-blue-600 font-medium hacker-text" data-value="DevLog">DevLog/Updates</a>
+                <a href="updates.html" class="hover:text-blue-600 font-medium hacker-text" data-value="DevLog">DevLog</a>
                 <a href="newsletter.html" class="text-blue-600 font-bold hacker-text" data-value="Newsletter">Newsletter</a>
                 <a href="downloads.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Downloads">Downloads</a>
                 <a href="links.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Links">Links</a>
@@ -88,9 +88,9 @@
             </div>
 
             <div class="space-y-16">
-                <article class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-8 md:p-12 shadow-xl transition-colors reveal">
+                <article class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-8 md:p-12 shadow-xl transition-colors">
                     
-                    <header class="mb-10 border-b border-gray-200 dark:border-gray-800 pb-8">
+                    <header class="mb-10 border-b border-gray-200 dark:border-gray-800 pb-8 reveal">
                         <div class="flex items-center gap-3 mb-4">
                             <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Threat Intelligence</span>
                             <time class="text-sm text-gray-500 dark:text-gray-400 font-mono">April 3, 2026</time>
@@ -105,67 +105,67 @@
 
                     <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed space-y-8">
                         
-                        <p>
+                        <p class="reveal">
                             The timeline for "Q-Day"—the theoretical horizon when a cryptographically relevant quantum computer (CRQC) successfully executes Shor's algorithm to break public-key infrastructure—has long been a subject of intense debate, recalibration, and occasionally, institutional complacency. Merely a month ago, risk modeling frameworks and expert consensus comfortably converged on a threat horizon centered around 2031 to 2035. This assumption relied heavily on the premise that millions of physical qubits would be required to manage the massive overhead of traditional quantum error correction (QEC), specifically the two-dimensional planar surface code.
                         </p>
 
-                        <p>
+                        <p class="reveal">
                             However, a sudden and profound convergence of unprecedented hardware scaling and radical algorithmic optimization in the first quarter of 2026 has systematically dismantled these baseline assumptions. The transition from theoretical physics to applied quantum engineering has accelerated the threat matrix, shifting Q-Day from a distant, abstract milestone to an imminent operational crisis.
                         </p>
 
-                        <p>
+                        <p class="reveal">
                             This deep-dive analysis explores the technical mechanisms driving this compression, the specific vulnerabilities of legacy cryptography, and the profound implications for global digital infrastructure. The evidence strongly suggests that the window for pre-quantum mitigation has compressed dramatically, necessitating an immediate pivot from theoretical planning to aggressive, hardware-level post-quantum cryptography (PQC) deployment.
                         </p>
 
-                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+                        <hr class="border-gray-200 dark:border-gray-800 my-10 reveal">
 
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">The Algorithmic Paradigm Shift: Erasing the Surface Code Bottleneck</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6 reveal">The Algorithmic Paradigm Shift: Erasing the Surface Code Bottleneck</h3>
                         
-                        <p>
+                        <p class="reveal">
                             Historically, the timeline for Q-Day was anchored by the immense overhead required for quantum error correction. Quantum bits, or qubits, are inherently fragile, losing coherence in microseconds due to environmental noise, stray photons, flux noise, and charge fluctuations. To execute deep circuits without state degradation, physical qubits must form stable, error-corrected logical qubits.
                         </p>
 
-                        <p>
+                        <p class="reveal">
                             Under the industry-standard surface code model, this requires a physical-to-logical qubit ratio of roughly 1000:1. Based on this architecture, early 2025 benchmarks suggested that breaking 2048-bit RSA encryption would require approximately one million physical qubits operating over a period of roughly five days. Given the immense engineering challenges of building a million-qubit machine, a 2030s Q-Day horizon appeared highly rational.
                         </p>
 
-                        <p class="text-xl font-bold text-red-600 dark:text-red-400 my-8 pl-4 border-l-4 border-red-500">
+                        <p class="text-xl font-bold text-red-600 dark:text-red-400 my-8 pl-4 border-l-4 border-red-500 reveal">
                             This fundamental assumption was entirely invalidated in early 2026 by the application of Quantum Low-Density Parity-Check (qLDPC) codes.
                         </p>
 
-                        <ul class="list-disc pl-6 space-y-3">
+                        <ul class="list-disc pl-6 space-y-3 reveal">
                             <li>Unlike classical surface codes, which possess low encoding rates and require periodic boundary conditions, qLDPC codes allow multiple logical qubits to be encoded within a single, highly efficient block of physical qubits.</li>
                             <li>This sparse parity-check constraint framework enables more efficient error syndrome extraction and achieves encoding rates approaching thirty percent.</li>
                             <li>The architectural framework drastically reduces the physical qubit requirement by up to two orders of magnitude compared to legacy models.</li>
                         </ul>
 
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-10 mb-4">The Pinnacle Architecture</h4>
-                        <p>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-10 mb-4 reveal">The Pinnacle Architecture</h4>
+                        <p class="reveal">
                             The most disruptive articulation of qLDPC efficiency arrived in February 2026 with the publication of the "Pinnacle Architecture" by researchers at Iceberg Quantum. The architecture achieves its unprecedented efficiency through two structural innovations:
                         </p>
 
-                        <ul class="space-y-4">
+                        <ul class="space-y-4 reveal">
                             <li class="bg-gray-100 dark:bg-gray-800/50 p-4 rounded-lg"><strong>The Magic Engine:</strong> A dedicated module that performs simultaneous magic state distillation and injection within a single QLDPC code block. By dedicating a module to provide a constant throughput of high-fidelity T-states, the Pinnacle Architecture minimizes idle computational time.</li>
                             <li class="bg-gray-100 dark:bg-gray-800/50 p-4 rounded-lg"><strong>Clifford Frame Cleaning:</strong> A technique allowing multiple processing units to access a shared quantum memory in parallel. By commuting Clifford gates into the measurement frame, the system completely bypasses the time-intensive physical implementation of entangling CNOT gates.</li>
                         </ul>
 
-                        <p class="font-medium">
+                        <p class="font-medium reveal">
                             The resource estimates derived from the Pinnacle Architecture fundamentally rewrite the timeline for RSA-2048 cryptanalysis. By trading time for space, an absolute minimum configuration requires a mere 98,000 physical qubits to complete the factorization in one month. This represents an exact order of magnitude reduction from the 2025 surface code benchmarks.
                         </p>
 
-                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+                        <hr class="border-gray-200 dark:border-gray-800 my-10 reveal">
 
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">The True Target: Elliptic Curve Cryptography</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6 reveal">The True Target: Elliptic Curve Cryptography</h3>
                         
-                        <p>
+                        <p class="reveal">
                             While RSA-2048 has long served as the psychological benchmark for Q-Day, elliptic curve cryptography (ECC) presents a significantly more fragile target that secures the vast majority of modern digital infrastructure.
                         </p>
 
-                        <p>
-                            In March 2026, researchers from Caltech and Oratomic demonstrated that Shor's algorithm could be executed at cryptographically relevant scales using as few as 10,000 reconfigurable atomic qubits. Because neutral atoms are trapped in optical tweezers and can be dynamically moved during computation, they natively support the complex, non-local, all-to-all connectivity graphs required by Lifted-Product and Bivariate Bicycle qLDPC codes. Fixed-grid architectures struggle to implement these codes due to wire routing constraints, but neutral atoms bypass this physical limitation entirely.
+                        <p class="reveal">
+                            In March 2026, researchers from Caltech and Oratomic demonstrated that Shor's algorithm could be executed at cryptographically relevant scales using as few as 10,000 reconfigurable atomic qubits. Because neutral atoms are trapped in optical tweezers and can be dynamically physically moved during computation, they natively support the complex, non-local, all-to-all connectivity graphs required by Lifted-Product and Bivariate Bicycle qLDPC codes. Fixed-grid architectures struggle to implement these codes due to wire routing constraints, but neutral atoms bypass this physical limitation entirely.
                         </p>
 
-                        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-800/50 my-8">
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-800/50 my-8 reveal">
                             <p class="font-bold text-blue-900 dark:text-blue-300 mb-4">For ECC-256, which underpins modern secure internet communications, the implications are staggering:</p>
                             <ul class="list-disc pl-6 space-y-2 text-blue-800 dark:text-blue-200">
                                 <li>A space-efficient architecture requires an astonishingly low <strong>9,739 physical qubits</strong>.</li>
@@ -173,11 +173,11 @@
                             </ul>
                         </div>
 
-                        <p>
+                        <p class="reveal">
                             The cryptographic community's intense fixation on RSA-2048 has created a dangerous false sense of temporal distance. Elliptic curve cryptography falls first on every single architecture, requiring dramatically fewer resources than integer factorization.
                         </p>
 
-                        <div class="my-10 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <div class="my-10 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm reveal">
                             <table class="min-w-full bg-white dark:bg-gray-900 text-left text-sm">
                                 <caption class="bg-gray-100 dark:bg-gray-800 p-4 font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700">A Comparative Look at Cryptographic Targets</caption>
                                 <thead class="bg-gray-50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300">
@@ -227,7 +227,7 @@
                                         <td class="py-3 px-4 font-bold text-red-900 dark:text-red-400">ECC-256</td>
                                         <td class="py-3 px-4">Google Quantum AI</td>
                                         <td class="py-3 px-4">Superconducting</td>
-                                        <td class="py-3 px-4">>500,000</td>
+                                        <td class="py-3 px-4">&lt; 500,000</td>
                                         <td class="py-3 px-4 font-extrabold text-red-600 dark:text-red-400">Minutes</td>
                                         <td class="py-3 px-4 text-gray-500">Mar 2026</td>
                                     </tr>
@@ -235,44 +235,44 @@
                             </table>
                         </div>
 
-                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+                        <hr class="border-gray-200 dark:border-gray-800 my-10 reveal">
 
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">The Hardware Vanguard: Reaching 100 Logical Qubits</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6 reveal">The Hardware Vanguard: Reaching 100 Logical Qubits</h3>
                         
-                        <p>
+                        <p class="reveal">
                             The theoretical algorithmic compressions published in early 2026 would remain academic exercises if not for a simultaneous, explosive acceleration in hardware delivery. The defining metric of the 2026 landscape is the unveiling of commercial quantum processing units (QPUs) capable of supporting 100 logical qubits.
                         </p>
 
-                        <ul class="space-y-6 mt-6">
+                        <ul class="space-y-6 mt-6 reveal">
                             <li><strong>Neutral Atoms:</strong> QuEra Computing is introducing a third-generation quantum error-corrected model featuring 100 logical qubits supported by over 10,000 physical qubits. This pushes quantum computing beyond the limits of classical simulatability. Infleqtion plans to develop a fully error-corrected quantum computer with 100 logical qubits supported by roughly 40,000 physical qubits.</li>
-                            <li><strong>Superconducting Modularity:</strong> IBM released a framework detailing its path to realizing a large-scale, fault-tolerant quantum computer designated IBM Quantum Starling by 2029. IBM relies on the bivariate bicycle (BB) codes to encode twelve logical qubits into 144 data qubits and 144 syndrome check qubits.</li>
+                            <li><strong>Superconducting Modularity:</strong> IBM released a framework detailing its path to realizing a large-scale, fault-tolerant quantum computer—designated IBM Quantum Starling—by 2029. IBM relies on the bivariate bicycle (BB) codes to encode twelve logical qubits into 144 data qubits and 144 syndrome check qubits.</li>
                             <li><strong>Trapped Ions:</strong> Quantinuum utilized its System Model H2 to generate twelve of the most reliable logical qubits ever recorded, yielding logical circuit error rates 800 times lower than physical circuit error rates.</li>
-                            <li><strong>Cat Qubits:</strong> Alice & Bob is actively constructing a $50 million lab in Paris to prototype the Graphene processor, a 100-logical-qubit quantum computer slated for completion by 2030.</li>
+                            <li><strong>Cat Qubits:</strong> Alice & Bob is actively constructing a 50 million dollar lab in Paris to prototype the Graphene processor, a 100-logical-qubit quantum computer slated for completion by 2030.</li>
                         </ul>
 
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-10 mb-4">The Classical Decoding Bottleneck Solved</h4>
-                        <p>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-10 mb-4 reveal">The Classical Decoding Bottleneck Solved</h4>
+                        <p class="reveal">
                             To execute Shor's algorithm, the classical computers tasked with interpreting error syndromes and instructing the quantum processor must operate with exceptional speed. The Pinnacle analysis requires a classical reaction time of approximately ten microseconds. Historically, this created a fatal bottleneck.
                         </p>
-                        <p>
-                            IBM's concurrent release of the Relay-BP (Disordered Memory Belief Propagation) decoder directly solves this crisis. By executing real-time XYZ-decoding directly adjacent to the quantum processor, Relay-BP achieves a ten-fold speedup over previous approaches, realizing the microsecond-scale reaction times required.
+                        <p class="reveal">
+                            IBM’s concurrent release of the Relay-BP (Disordered Memory Belief Propagation) decoder directly solves this crisis. By executing real-time XYZ-decoding directly adjacent to the quantum processor, Relay-BP achieves a ten-fold speedup over previous approaches, realizing the microsecond-scale reaction times required.
                         </p>
 
-                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+                        <hr class="border-gray-200 dark:border-gray-800 my-10 reveal">
 
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">Global Recalibration: Google's 2029 Mandate</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6 reveal">Global Recalibration: Google's 2029 Mandate</h3>
                         
-                        <p>
+                        <p class="reveal">
                             The most definitive acknowledgment of this compressed threat timeline occurred in late March 2026, when Google officially revised its internal and ecosystem-wide migration deadline for Post-Quantum Cryptography (PQC) to the end of 2029.
                         </p>
-                        <p>
+                        <p class="reveal">
                             Google Quantum AI demonstrated that breaking the 256-bit elliptic curve discrete logarithm problem could be achieved using fewer than 1,200 logical qubits and around 90 million Toffoli gate operations. Executing the Google Echoes algorithm via the OTOC(2) protocol compresses the attack timeline against major cryptocurrencies to mere minutes.
                         </p>
-                        <p class="text-xl font-medium text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800/50 p-6 border-l-4 border-gray-400 dark:border-gray-600 rounded-r-xl my-8">
+                        <p class="text-xl font-medium text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800/50 p-6 border-l-4 border-gray-400 dark:border-gray-600 rounded-r-xl my-8 reveal">
                             When the operator of the world's most ubiquitous web browser publicly resets its risk calculus to 2029, the cybersecurity paradigm irrevocably shifts. The 2029 deadline defines the absolute final window for infrastructure mitigation before the probability of catastrophic cryptographic failure becomes statistically intolerable.
                         </p>
 
-                        <div class="my-10 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <div class="my-10 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm reveal">
                             <table class="min-w-full bg-white dark:bg-gray-900 text-left text-sm">
                                 <caption class="bg-gray-100 dark:bg-gray-800 p-4 font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700">Sovereign Phase-Out Deadlines</caption>
                                 <thead class="bg-gray-50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300">
@@ -312,41 +312,41 @@
                             </table>
                         </div>
 
-                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+                        <hr class="border-gray-200 dark:border-gray-800 my-10 reveal">
 
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">The Existential Vulnerabilities</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6 reveal">The Existential Vulnerabilities</h3>
                         
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3">Blockchain and Digital Assets</h4>
-                        <p>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3 reveal">Blockchain and Digital Assets</h4>
+                        <p class="reveal">
                             The compressed timeline poses an asymmetrical risk to the global cryptocurrency ecosystem. Approximately 7 million Bitcoins—representing roughly 33% of the total circulating supply—are acutely exposed to immediate quantum theft. This vulnerability stems from approximately 1.7 million Bitcoins held in legacy Pay-to-Public-Key addresses where public keys are openly visible, along with 1.1 million Bitcoins attributed to Satoshi Nakamoto distributed across dormant addresses.
                         </p>
-                        <p class="mt-4">
+                        <p class="mt-4 reveal">
                             While Ethereum is proactively migrating via account abstraction, the Bitcoin network faces a severe governance paralysis regarding post-quantum mitigation, lacking a coordinated roadmap.
                         </p>
 
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3">Harvest Now, Decrypt Later (HNDL)</h4>
-                        <p>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3 reveal">Harvest Now, Decrypt Later (HNDL)</h4>
+                        <p class="reveal">
                             Adversaries are currently vacuuming up vast quantities of encrypted data transmitted over classical RSA or Diffie-Hellman key exchanges. Because the Q-Day horizon has pulled inward, any data transmitted today with a sensitivity shelf-life exceeding five years is already effectively compromised. The vulnerability window is not opening in the future; it is currently wide open.
                         </p>
 
-                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3">The ICS Installed Base Problem</h4>
-                        <p>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-3 reveal">The ICS Installed Base Problem</h4>
+                        <p class="reveal">
                             The most severe impediment to rapid PQC migration lies in Industrial Control Systems (ICS). Power grids and pipelines operate on hardware lifecycles spanning fifteen to twenty years, utilizing cryptography deeply embedded into physical Hardware Security Modules soldered directly onto logic boards. New NIST PQC algorithms require significantly larger key sizes and processing power, meaning a substation controller manufactured in 2015 simply lacks the physical memory to execute a post-quantum handshake. Achieving resilience requires massive capital expenditure to physically replace integrated circuit boards across vast geographic areas.
                         </p>
 
-                        <hr class="border-gray-200 dark:border-gray-800 my-10">
+                        <hr class="border-gray-200 dark:border-gray-800 my-10 reveal">
 
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6">Strategic Imperatives</h3>
-                        <p>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-12 mb-6 reveal">Strategic Imperatives</h3>
+                        <p class="reveal">
                             The synthesis of technological breakthroughs in the first quarter of 2026 paints an unequivocal picture: the era of speculative, long-horizon quantum risk has ended. By compressing the physical qubit requirement for breaking RSA-2048 to roughly 100,000, and ECC-256 to under 26,000, algorithmic innovation has effectively fast-forwarded the threat timeline by nearly a decade.
                         </p>
-                        <p class="text-lg font-bold text-gray-900 dark:text-white bg-red-50 dark:bg-red-900/10 p-6 rounded-xl border border-red-200 dark:border-red-900/50 mt-6">
+                        <p class="text-lg font-bold text-gray-900 dark:text-white bg-red-50 dark:bg-red-900/10 p-6 rounded-xl border border-red-200 dark:border-red-900/50 mt-6 reveal">
                             For governments, financial institutions, and operators of critical infrastructure, the grace period for theoretical planning has evaporated. The global cybersecurity apparatus must immediately follow suit, operating under the assumption that the cryptographic foundations of the digital economy are already operating on borrowed time.
                         </p>
 
                     </div>
                     
-                    <footer class="mt-20 pt-10 border-t border-gray-200 dark:border-gray-800">
+                    <footer class="mt-20 pt-10 border-t border-gray-200 dark:border-gray-800 reveal">
                         <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-6">Citations & References</h4>
                         <div class="h-64 overflow-y-auto pr-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg p-4 text-xs text-gray-500 dark:text-gray-400 space-y-3 break-words border border-gray-100 dark:border-gray-800">
                             <ol class="list-decimal pl-4 space-y-2 font-mono">
@@ -372,7 +372,7 @@
                                 <li>Infleqtion Unveils 5-year Quantum Computing Roadmap, Advancing Plans to Commercialize Quantum at Scale, <a href="https://infleqtion.com/infleqtion-unveils-5-year-quantum-computing-roadmap-advancing-plans-to-commercialize-quantum-at-scale/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>The road to useful quantum computing - Moody's, <a href="https://www.moodys.com/web/en/us/insights/quantum/the-road-to-useful-quantum-computing.html" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>Infleqtion, Inc. (INFQ) Analyst/Investor Day Transcript | Seeking Alpha, <a href="https://seekingalpha.com/article/4881194-infleqtion-inc-infq-analyst-investor-day-transcript" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
-                                <li>ISSCC Session 01 Plenary Presentation | PDF | Quantum Computing | Integrated Circuit, <a href="https://www.scribd.com/document/1001730883/ISSCC-Seesion-01-Plenery-Presentation" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>ISSCC Seesion 01 Plenery Presentation | PDF | Quantum Computing | Integrated Circuit, <a href="https://www.scribd.com/document/1001730883/ISSCC-Seesion-01-Plenery-Presentation" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>Integration and Resource Estimation of Cryoelectronics for Superconducting Fault-Tolerant Quantum Computers - arXiv, <a href="https://arxiv.org/html/2601.03922v1" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>IBM begins development of the world's first fault-tolerant large-scale quantum computer, 'IBM Quantum Starling' - GIGAZINE, <a href="https://gigazine.net/gsc_news/en/20250611-ibm-worlds-first-large-scale-fault-tolerant-quantum-computer/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>QDC24 Quick Hit: IBM Plows Ahead with Quantum Hardware Development - HPCwire, <a href="https://www.hpcwire.com/2024/11/26/qdc24-quick-hit-ibm-plows-ahead-with-quantum-hardware-development/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
@@ -380,7 +380,7 @@
                                 <li>Microsoft and Quantinuum create 12 logical qubits and demonstrate a hybrid, end-to-end chemistry simulation - Microsoft Azure Quantum Blog, <a href="https://azure.microsoft.com/en-us/blog/quantum/2024/09/10/microsoft-and-quantinuum-create-12-logical-qubits-and-demonstrate-a-hybrid-end-to-end-chemistry-simulation/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>Quantinuum's H-Series hits 56 physical qubits that are all-to-all connected, and departs the era of classical simulation, <a href="https://www.quantinuum.com/blog/quantinuums-h-series-hits-56-physical-qubits-that-are-all-to-all-connected-and-departs-the-era-of-classical-simulation" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>Quantinuum selected as a founding collaborator for NVIDIA Accelerated Quantum Research Center, <a href="https://www.quantinuum.com/press-releases/quantinuum-selected-as-a-founding-collaborator-for-nvidia-accelerated-quantum-research-center" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
-                                <li>Alice & Bob To Build $50 Million Advanced Quantum Lab in Paris With Bluefors and Quantum Machines, <a href="https://bluefors.com/news/alice-bob-to-build-50-million-advanced-quantum-lab-in-paris-with-bluefors-and-quantum-machines/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
+                                <li>Alice &amp; Bob To Build $50 Million Advanced Quantum Lab in Paris With Bluefors and Quantum Machines, <a href="https://bluefors.com/news/alice-bob-to-build-50-million-advanced-quantum-lab-in-paris-with-bluefors-and-quantum-machines/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>Breaking News Archives - EE Times, <a href="https://www.eetimes.com/category/breaking-news/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>News Archive 2025 - Quantum Computing Report, <a href="https://quantumcomputingreport.com/news-archive-2025/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
                                 <li>Shor, QLDPC Codes, and the Compression of RSA-2048 Resource Estimates (Part I), <a href="https://quantumcomputingreport.com/shor-qldpc-codes-and-the-compression-of-rsa-2048-resource-estimates-part-i/" class="hover:text-blue-500 underline" target="_blank">Link</a></li>
