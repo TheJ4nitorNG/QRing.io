@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Status | QRing.io</title>
+    
+    <meta id="theme-color-meta" name="theme-color" content="#f9fafb">
+
+    <meta name="title" content="QRing.io | Post-Quantum Privacy">
+    <meta name="description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qring.io/">
+    <meta property="og:title" content="QRing.io | Post-Quantum Privacy">
+    <meta property="og:description" content="The first production-ready, post-quantum hardfork of Monero. Faster, lighter, and engineered for the quantum era.">
+    <meta property="og:image" content="https://qring.io/preview-image.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+
+    <header class="w-full relative z-50 bg-gray-50 dark:bg-gray-950 transition-colors duration-300 border-b border-gray-200 dark:border-gray-800">
+        <nav class="p-6 max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter text-blue-600 hacker-text" data-value="QRing.io">QRing.io</a>
+            
+            <div class="space-x-4 lg:space-x-6 hidden md:flex items-center text-sm lg:text-base">
+                <a href="why.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Why QRing?">Why QRing?</a>
+                <a href="faq.html" class="hover:text-blue-600 font-medium hacker-text" data-value="FAQ">FAQ</a>
+                <a href="benchmarks.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Benchmarks">Benchmarks</a>
+                <a href="roadmap.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Roadmap">Roadmap</a>
+                <a href="status.html" class="text-blue-600 font-bold hacker-text" data-value="Status">Status</a>
+                <a href="newsletter.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Newsletter">Newsletter</a>
+                <a href="downloads.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Downloads">Downloads</a>
+                <a href="links.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Links">Links</a>
+                <a href="hiring.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Hiring">Hiring</a>
+                <a href="team.html" class="hover:text-blue-600 font-medium hacker-text" data-value="Team">Team</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg text-sm p-2 focus:outline-none transition-colors">
+                    <svg id="theme-toggle-dark-icon" class="block dark:hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden dark:block w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-gray-100 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-b border-gray-200 dark:border-gray-800 absolute w-full left-0 shadow-lg pb-4 pt-2 px-6 z-40">
+            <div class="flex flex-col space-y-4">
+                <a href="why.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Why QRing?</a>
+                <a href="faq.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">FAQ</a>
+                <a href="benchmarks.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Benchmarks</a>
+                <a href="roadmap.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Roadmap</a>
+                <a href="status.html" class="text-lg font-bold text-blue-600 dark:text-gray-200">Status</a>
+                <a href="newsletter.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Newsletter</a>
+                <a href="downloads.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Downloads</a>
+                <a href="links.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Links</a>
+                <a href="hiring.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Hiring</a>
+                <a href="team.html" class="text-lg font-medium hover:text-blue-600 dark:text-gray-200">Team</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow py-16 px-4">
+        <div class="max-w-6xl mx-auto reveal">
+            
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 hacker-text cursor-default" data-value="Network Status">Network Status</h1>
+                <p class="text-gray-600 dark:text-gray-400 text-lg transition-colors max-w-2xl mx-auto">
+                    Live operational deployment phases across the MultAI Technologies ecosystem.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="bg-white dark:bg-gray-950 border border-blue-200 dark:border-blue-900/50 rounded-2xl p-8 shadow-lg ring-1 ring-blue-500/10 hover:ring-blue-500/30 transition-all flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="assets/qring_logo.png" alt="QRing Network" class="w-14 h-14 object-contain drop-shadow-md">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white hacker-text" data-value="QRing Network">QRing Network</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-blue-200 dark:border-blue-800">Phase: MVP</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-yellow-200 dark:border-yellow-800">Awaiting CertiK Audit</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        The core Layer 1 post-quantum settlement engine has reached Minimum Viable Product (MVP) status. The lattice cryptography implementation is complete, and the codebase is currently frozen pending a comprehensive, third-party security audit by CertiK to ensure mainnet readiness.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-950 border border-purple-200 dark:border-purple-900/50 rounded-2xl p-8 shadow-lg ring-1 ring-purple-500/10 hover:ring-purple-500/30 transition-all flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-purple-600"></div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="assets/qubit_logo.png" alt="Qubit Protocol" class="w-14 h-14 object-contain drop-shadow-md">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white hacker-text" data-value="Qubit Protocol">Qubit Protocol</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-purple-200 dark:border-purple-800">Phase: Alpha</span>
+                        <span class="bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-green-200 dark:border-green-800">Active Testing</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        The programmable Layer 2 zk-rollup is currently undergoing active Alpha testing on local testnets. Developers are stress-testing the PQ-WASM virtual machine and optimizing the zero-knowledge proofs before deploying the two-way bridge to the QRing MVP environment.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-950 border border-orange-200 dark:border-orange-900/50 rounded-2xl p-8 shadow-lg ring-1 ring-orange-500/10 hover:ring-orange-500/30 transition-all flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600"></div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="assets/pgc_logo.png" alt="PeregrineCoin" class="w-14 h-14 object-contain drop-shadow-md">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white hacker-text" data-value="PeregrineCoin ($PGC)">PeregrineCoin ($PGC)</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-orange-200 dark:border-orange-800">Phase: Alpha</span>
+                        <span class="bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-green-200 dark:border-green-800">Active Testing</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        The high-throughput transparent ledger is in the Alpha testing phase. Current benchmarks are heavily focused on validating the sub-second finality of the Threshold MAYO signatures and optimizing the block-lattice data structure across distributed, multi-region nodes.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-950 border border-teal-200 dark:border-teal-900/50 rounded-2xl p-8 shadow-lg ring-1 ring-teal-500/10 hover:ring-teal-500/30 transition-all flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-teal-600"></div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-teal-100 dark:bg-teal-900/40 rounded-full flex items-center justify-center text-teal-600 dark:text-teal-400 border border-teal-200 dark:border-teal-800">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white hacker-text" data-value="RingCollider DEX">RingCollider DEX</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-teal-200 dark:border-teal-800">Phase: Alpha</span>
+                        <span class="bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-green-200 dark:border-green-800">Active Testing</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        The flagship decentralized exchange running atop the Qubit Protocol. The smart contract suite is in Alpha testing, focusing on integrating native quantum entropy to effectively eliminate Maximal Extractable Value (MEV) attacks in the liquidity pools.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-gray-500 dark:text-gray-400 text-sm mt-auto bg-gray-50 dark:bg-gray-950 transition-colors duration-300 border-t border-gray-200 dark:border-gray-800">
+        <p>&copy; 2026 QRing.io. All rights reserved.</p>
+        <p class="mt-2">Actively maintained by MultAI Technologies Inc.</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+    </script>
+    <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
+            observer.observe(el);
+        });
+    </script>
+    <script>
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+        const scrambleObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    let iterations = 0;
+                    const originalText = element.dataset.value;
+                    const interval = setInterval(() => {
+                        element.innerText = element.innerText.split("")
+                            .map((letter, index) => {
+                                if(index < iterations) return originalText[index];
+                                return letters[Math.floor(Math.random() * letters.length)];
+                            }).join("");
+                        
+                        if(iterations >= originalText.length) { 
+                            clearInterval(interval);
+                            element.innerText = originalText;
+                        }
+                        iterations += 1 / 3;
+                    }, 30);
+                    observer.unobserve(element);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.hacker-text').forEach(element => { scrambleObserver.observe(element); });
+    </script>
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (document.documentElement.classList.contains('dark')) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
